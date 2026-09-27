@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     authenticated: true,
     user: {
-      email: session.email || "varunparlapalli2008@gmail.com"
+      email: session.email || "gummadivenkatasaiharishbabu@gmail.com"
     }
   });
 }

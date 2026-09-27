@@ -148,6 +148,7 @@ export async function getPublishedGroundingSnapshot() {
     })),
     achievements: achievements.map(a => ({
       title: a.title,
+      type: a.type,
       event: a.event,
       organizer: a.organizer,
       result: a.result,
@@ -179,85 +180,45 @@ export async function getPublishedPortfolioKnowledge(): Promise<string> {
   const c = snapshot.candidate;
 
   return `
-# PUBLISHED PORTFOLIO KNOWLEDGE BASE (PARLAPALLI VARUN)
-Strict instruction: You are Varun's AI Portfolio Assistant. You must answer ONLY from the published records below. Never invent details, credentials, scores, or private data. If a requested detail is not in this document, state truthfully that it is not part of Varun's published portfolio records.
+# PUBLISHED PORTFOLIO KNOWLEDGE BASE (VENKATA SAI HARISH BABU GUMMADI)
+Strict instruction: You are Harish's AI Portfolio Assistant. You must answer ONLY from the published records below. Never invent details, credentials, scores, or private data. If a requested detail is not in this document, state truthfully that it is not part of Harish's published portfolio records.
 
 ## 1. CANDIDATE PROFILE & BIOGRAPHY
 - Name: ${c.name}
+- Preferred Name: Harish Babu
 - Location: ${c.location}
 - Primary Role: ${c.primaryRole}
 - Supporting Role: ${c.supportingRole}
-- Bio / Overview: ${c.introduction} ${c.aboutBio}
-- Academic Education: ${c.education.degree} (${c.education.field}) at ${c.education.institution} (${c.education.university}), Period: ${c.education.period}. Coursework includes Software Engineering, Data Structures, Cybersecurity Fundamentals, and UI/UX Systems.
-- Institutional Note: Independent student projects (such as the NEC Portal) are independent student prototypes and not official institutional endorsements.
+- Bio / Overview: ${c.introduction} ${c.aboutBio.join(" ")}
+- Academic Education:
+  * B.Tech in Computer Science and Engineering (CSE) at Narasaraopeta Engineering College (JNTUK), Period: 2025–2029 (Ongoing), CGPA: 8.46.
+  * Intermediate (12th): Narayana, MPC, Completed 2025, 91.3%.
+  * SSC (10th): Kennedy English Medium High School, State Board, Completed 2023, 87%.
+- Career Interests & Focus Areas: Software Development, Full Stack Web Development, Cybersecurity.
+- Languages Known: English, Telugu.
 - Approved Contact Channels:
-  - Email: ${c.contactChannels.email}
-  - GitHub: ${c.contactChannels.github}
-  - LinkedIn: ${c.contactChannels.linkedin}
-  - Availability: ${c.contactChannels.availability}
-- Important Privacy Note: Phone numbers, residential addresses, private academic scores/GPAs, administrative credentials, and unpublished drafts are strictly private and not available.
+  * Email: ${c.contactChannels.email}
+  * Phone: +91 8919580966
+  * GitHub: ${c.contactChannels.github}
+  * Availability: ${c.contactChannels.availability}
+- Important Note: No separate LinkedIn or portfolio URL has been provided. No work experience or internship records are present.
 
-## 2. LEADERSHIP & EXPERIENCE: CODEXA AGENCY
-${snapshot.experience.map(e => `
-- Role: ${e.role}
-- Organization: ${e.company}
-- Focus / Distinction: ${e.cooDistinction || "Operations & Delivery Leadership"}
-- Period: ${e.period}
-- Verified Responsibilities & Contributions:
-${e.contributions.map((item: string) => `  * ${item}`).join('\n')}
-`).join('\n')}
-
-## 3. PUBLISHED PROJECTS & CASE STUDIES
-${snapshot.projects.map(p => `
-### Project: ${p.title}
-- Slug: ${p.slug}
-- Portfolio Case Study Link: /projects/${p.slug}
-- Live Demo Link: ${p.liveUrl || "Not publicly deployed"}
-- GitHub Repository Link: ${p.repoUrl || "Private repository"}
-- Role: ${p.role}
-- Varun's Specific Personal Contribution: ${p.contribution}
-- Technologies Used: ${p.technologies.join(', ')}
-- Problem Statement: ${p.problem}
-- Built Features:
-${p.featuresBuilt.map((f: string) => `  * ${f}`).join('\n')}
-- Challenges Solved: ${p.challenges}
-- Lessons Learned: ${p.lessons}
-- Known Limitations / Future Scope: ${p.limitations}
-`).join('\n')}
-
-- Which project is best for a Frontend Internship?:
-  The **NEC Portal** (/projects/nec-portal) is Varun's flagship frontend project demonstrating end-to-end frontend architecture: accessible data tables, responsive layouts, search & filter interactions, dark/light themes, and student services directories using React, TypeScript, and Tailwind CSS.
-
-## 4. HACKATHONS & COMPETITIVE ACHIEVEMENTS
-${snapshot.achievements.map(a => `
-- ${a.title} (${a.year}):
-  * Event & Organizer: ${a.event} (${a.organizer})
-  * Result: ${a.result}
-  * Category: ${a.teamOrIndividual === 'Individual' ? 'Individual Achievement' : 'Collaborative Team Achievement'}
-  * Summary: ${a.description}
-`).join('\n')}
-Note on distinctions: ByteXL Hackathon was an individual top 30 placement among ~180 students; CodeBegun was a 4th-place team sprint.
-
-## 5. PUBLISHED CREDENTIALS & CERTIFICATES (ALL 8 CONFIRMED)
-${snapshot.credentials.map(cr => `
-- **${cr.title}**
-  * Type: ${cr.type}
-  * Category: ${cr.category}
-  * Issuer: ${cr.issuer}
-  * Issued / Completed: ${cr.date}
-  * Summary: ${cr.summary}
-  * Credential ID / Verification: ${cr.credentialId || "Verified completion"}
-  * Disclosure: ${cr.isJourney ? "Important Note: This is a comprehensive self-paced learning journey curriculum covering cloud security engineering, NOT an official proctored certification exam." : "Verified course completion certificate / learning module."}
-`).join('\n')}
-
-## 6. TECHNICAL SKILLS & PROFICIENCY
+## 2. TECHNICAL SKILLS & PROFICIENCY
 ${snapshot.skills.map(s => `
-- ${s.name} (${s.category}) — Proficiency: ${s.proficiency}. Linked projects: ${s.relatedProjects.join(', ') || 'General application'}.
+- ${s.name} (${s.category})
 `).join('\n')}
+(Skills strictly limited to: C, Java, Python, HTML, Supabase).
 
-## 7. CURRENT LEARNING
-${snapshot.currentlyLearning.map(l => `
-- ${l.topic} (${l.area}) — Notes: ${l.notes}
+## 3. PROJECTS STATUS
+- Status: Projects currently in progress. Harish is building and documenting practical software projects; selected work will be published on GitHub (${c.contactChannels.github}) as it becomes ready.
+
+## 4. HACKATHONS & ACHIEVEMENTS
+${snapshot.achievements.map(a => `
+- ${a.title}:
+  * Type: ${a.type}
+  * Event / Context: ${a.event} (${a.organizer})
+  * Result: ${a.result}
+  * Summary: ${a.description}
 `).join('\n')}
 `.trim();
 }

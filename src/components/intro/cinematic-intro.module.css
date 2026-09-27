@@ -10,19 +10,19 @@
   padding: 0;
   border: 0;
   overflow: hidden;
-  background: #10090d;
-  color: #eee0cb;
+  background: #080808;
+  color: #F5F5F5;
   --film-duration: 7.2s;
 }
 
-.dialog::backdrop { background: #10090d; }
+.dialog::backdrop { background: #080808; }
 .dialog[data-phase="exiting"] { opacity: 0; transition: opacity 550ms ease; }
 .dialog[data-phase="exiting"]::backdrop { background: transparent; transition: background 550ms ease; }
 .film { position: relative; width: 100%; height: 100%; overflow: hidden; isolation: isolate; }
 .atmosphere {
   position: absolute;
   inset: -10%;
-  background: radial-gradient(ellipse at 50% 52%, #53202c 0%, #231018 36%, #0c0a0b 75%);
+  background: radial-gradient(ellipse at 50% 52%, rgba(255, 122, 0, 0.12) 0%, rgba(20, 10, 5, 0.7) 36%, #080808 75%);
   animation: atmosphere var(--film-duration) ease both;
 }
 .montage { position: absolute; inset: 0; width: 100%; height: 100%; animation: montageFade var(--film-duration) linear both; }
@@ -58,24 +58,24 @@
   animation: sweep var(--film-duration) ease both;
 }
 .controls { position: absolute; top: max(30px, env(safe-area-inset-top)); left: 4%; right: 4%; display: flex; align-items: center; justify-content: space-between; gap: 16px; z-index: 3; }
-.brand { font-size: 10px; letter-spacing: .19em; color: #c9baa7; white-space: nowrap; }
-.brand span { margin: 0 12px; color: #997550; }
+.brand { font-size: 10px; letter-spacing: .19em; color: #B7B7B7; white-space: nowrap; }
+.brand span { margin: 0 12px; color: #FF7A00; }
 .actions { display: flex; align-items: center; gap: 24px; }
 .control, .skip { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; font-family: inherit; font-size: 11px; letter-spacing: .05em; cursor: pointer; transition: color .2s, background .2s; }
-.control { color: #c4b5a7; padding: 0 4px; }
-.skip { padding: 0 16px; border: 1px solid #ceb18960; border-radius: 4px; color: #f0dfc7; background: #130b1070; }
-.skip:hover { background: #cfb187; color: #211119; }
-.control:hover { color: #fff4e3; }
-.control:focus-visible, .skip:focus-visible { outline: 2px solid #efcc95; outline-offset: 5px; }
-.caption { position: absolute; left: 0; right: 0; bottom: max(94px, calc(env(safe-area-inset-bottom) + 70px)); text-align: center; font-size: 10px; letter-spacing: .32em; color: #c7b79e; }
+.control { color: #B7B7B7; padding: 0 4px; }
+.skip { padding: 0 16px; border: 1px solid rgba(255, 122, 0, 0.4); border-radius: 4px; color: #F5F5F5; background: rgba(18, 18, 18, 0.85); }
+.skip:hover { background: #FF7A00; color: #080808; }
+.control:hover { color: #FF9D33; }
+.control:focus-visible, .skip:focus-visible { outline: 2px solid #FF7A00; outline-offset: 5px; }
+.caption { position: absolute; left: 0; right: 0; bottom: max(94px, calc(env(safe-area-inset-bottom) + 70px)); text-align: center; font-size: 10px; letter-spacing: .32em; color: #B7B7B7; }
 .caption span { display: block; }
 .chapterOne { animation: chapterOne var(--film-duration) linear both; }
 .chapterTwo { position: absolute; inset: 0; animation: chapterTwo var(--film-duration) linear both; }
-.progress { position: absolute; bottom: max(66px, calc(env(safe-area-inset-bottom) + 42px)); left: 50%; width: 170px; height: 1px; transform: translateX(-50%); background: #ddbd8930; }
-.progress span { display: block; height: 100%; background: #d8b580; transform-origin: left; animation: progress var(--film-duration) linear both; }
-.replay { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: #68626b; font-size: 12px; cursor: pointer; transition: color .2s; }
-.replay:hover { color: #590b20; }
-.replay:focus-visible { outline: 2px solid #590b20; outline-offset: 4px; border-radius: 2px; }
+.progress { position: absolute; bottom: max(66px, calc(env(safe-area-inset-bottom) + 42px)); left: 50%; width: 170px; height: 1px; transform: translateX(-50%); background: rgba(255, 122, 0, 0.2); }
+.progress span { display: block; height: 100%; background: #FF7A00; transform-origin: left; animation: progress var(--film-duration) linear both; }
+.replay { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: #818181; font-size: 12px; cursor: pointer; transition: color .2s; }
+.replay:hover { color: #FF7A00; }
+.replay:focus-visible { outline: 2px solid #FF7A00; outline-offset: 4px; border-radius: 2px; }
 
 @keyframes montageTravel {
   0% { transform: translate(-110px, -110px) scale(1.75) rotate(-13deg); }

@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
           },
           body: JSON.stringify({
             from: "Portfolio Inquiry <onboarding@resend.dev>",
-            to: ["varunparlapalli2008@gmail.com"],
+            to: ["gummadivenkatasaiharishbabu@gmail.com"],
             subject: `[Portfolio Inquiry] ${purpose || "General"} from ${name.trim()}`,
             text: `Name: ${name.trim()}\nEmail: ${email.trim()}\nPurpose: ${purpose}\n\nMessage:\n${message.trim()}`
           })

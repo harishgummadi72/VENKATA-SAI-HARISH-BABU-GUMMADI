@@ -1,18 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #F7F4EE;
-  --color-ivory-light: #FCFAF6;
-  --color-ivory-card: #FFFFFF;
-  --color-burgundy-dark: #20060B;
-  --color-burgundy: #590B20;
-  --color-burgundy-hover: #430717;
-  --color-gold: #AC9062;
-  --color-gold-light: #C5A880;
-  --color-gold-muted: #D4C4A8;
-  --color-gray-warm: #68626B;
-  --color-border-warm: #D9CCB8;
-  --color-border-subtle: #E8DFD1;
+  /* New Semantic Black & Orange Design System Tokens */
+  --color-bg-primary: #080808;
+  --color-bg-secondary: #0D0D0D;
+  --color-surface-elevated: #121212;
+  --color-surface-card: #151515;
+  --color-orange-primary: #FF7A00;
+  --color-orange-accent: #FF8C1A;
+  --color-orange-bright: #FF9D33;
+  --color-orange-muted: #C65F00;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #B7B7B7;
+  --color-text-muted: #818181;
+  --color-border-primary: #262626;
+  --color-border-orange: rgba(255, 122, 0, 0.35);
+  --color-surface-glass: rgba(18, 18, 18, 0.65);
+
+  /* Legacy Class Aliases mapped directly to Black & Orange */
+  --color-ivory: #080808;
+  --color-ivory-light: #0D0D0D;
+  --color-ivory-card: #151515;
+  --color-burgundy-dark: #F5F5F5;
+  --color-burgundy: #FF7A00;
+  --color-burgundy-hover: #FF8C1A;
+  --color-gold: #FF7A00;
+  --color-gold-light: #FF9D33;
+  --color-gold-muted: #C65F00;
+  --color-gray-warm: #B7B7B7;
+  --color-border-warm: #262626;
+  --color-border-subtle: #1F1F1F;
 
   --font-serif-display: var(--font-bodoni), "Bodoni Moda", "Bodoni MT", Didot, "Playfair Display", Georgia, serif;
   --font-sans: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -21,37 +38,57 @@
 }
 
 :root {
-  --bg-ivory: #F7F4EE;
-  --text-burgundy-dark: #20060B;
-  --accent-burgundy: #590B20;
-  --gold-antique: #AC9062;
-  --gold-border: #D9CCB8;
-  --text-muted: #68626B;
+  --color-bg-primary: #080808;
+  --color-bg-secondary: #0D0D0D;
+  --color-surface: #121212;
+  --color-surface-card: #151515;
+  --color-accent: #FF7A00;
+  --color-accent-hover: #FF8C1A;
+  --color-accent-bright: #FF9D33;
+  --color-accent-muted: #C65F00;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #B7B7B7;
+  --color-text-muted: #818181;
+  --color-border: #262626;
+  --color-border-orange: rgba(255, 122, 0, 0.35);
+
+  /* Legacy root variables mapped to dark + orange */
+  --bg-ivory: #080808;
+  --text-burgundy-dark: #F5F5F5;
+  --accent-burgundy: #FF7A00;
+  --gold-antique: #FF7A00;
+  --gold-border: #262626;
+  --text-muted: #818181;
   --header-height: 4.5rem;
 }
 
-/* Force light warm atelier canvas - strictly light mode */
+/* Force dark atelier canvas */
 html, body {
-  background-color: #F7F4EE;
-  color: #20060B;
+  background-color: #080808;
+  color: #F5F5F5;
   font-family: var(--font-inter), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* Subtle paper grain texture */
+::selection {
+  background-color: rgba(255, 122, 0, 0.3);
+  color: #FFFFFF;
+}
+
+/* Subtle dark paper grain texture with faint warm amber / orange particles */
 .paper-grain {
-  background-color: #F7F4EE;
-  background-image: radial-gradient(rgba(172, 144, 98, 0.04) 1px, transparent 1px);
+  background-color: #080808;
+  background-image: radial-gradient(rgba(255, 122, 0, 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* Architectural linework styling */
 .arch-line {
-  stroke: #AC9062;
+  stroke: #FF7A00;
   stroke-width: 0.85;
   fill: none;
-  opacity: 0.38;
+  opacity: 0.22;
 }
 
 /* Serif headings matching reference */
@@ -71,19 +108,19 @@ html, body {
 
 /* Hairline dividers matching reference */
 .hairline-b {
-  border-bottom: 1px solid #D9CCB8;
+  border-bottom: 1px solid #262626;
 }
 
 .hairline-r {
-  border-right: 1px solid #D9CCB8;
+  border-right: 1px solid #262626;
 }
 
 .hairline-t {
-  border-top: 1px solid #D9CCB8;
+  border-top: 1px solid #262626;
 }
 
 .hairline-l {
-  border-left: 1px solid #D9CCB8;
+  border-left: 1px solid #262626;
 }
 
 /* Custom scrollbar */
@@ -92,14 +129,14 @@ html, body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F7F4EE;
+  background: #080808;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9CCB8;
+  background: #262626;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #AC9062;
+  background: #FF7A00;
 }
 
 /* Coordinated opening sequence animations */

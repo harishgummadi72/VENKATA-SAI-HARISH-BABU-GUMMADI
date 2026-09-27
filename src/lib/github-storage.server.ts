@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const DEFAULT_REPO = "varunparlapalli2008/varun-parlapalli";
+const DEFAULT_REPO = "harishgummadi72/portfolio";
 const DEFAULT_BRANCH = "main";
 const DEFAULT_PATH = "data/portfolio-store.json";
 
@@ -17,7 +17,8 @@ export interface StoragePersistenceResult {
 }
 
 export function isGitHubStorageConfigured(): boolean {
-  return Boolean(process.env.GITHUB_CONTENT_TOKEN?.trim());
+  const token = process.env.GITHUB_CONTENT_TOKEN?.trim();
+  return Boolean(token && !token.includes("your_github_personal_access_token_here"));
 }
 
 export function getGitHubStorageConfig() {
@@ -43,7 +44,7 @@ export async function fetchContentFromGitHub<T = unknown>(): Promise<{ data: T; 
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "ParlapalliVarunPortfolio-Studio"
+      "User-Agent": "HarishBabuPortfolio-Studio"
     },
     cache: "no-store"
   });
@@ -104,7 +105,7 @@ export async function commitContentToGitHub<T = unknown>(
       Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "ParlapalliVarunPortfolio-Studio"
+      "User-Agent": "HarishBabuPortfolio-Studio"
     },
     body: JSON.stringify(bodyPayload)
   });

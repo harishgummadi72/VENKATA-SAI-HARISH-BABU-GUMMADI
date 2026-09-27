@@ -37,12 +37,13 @@ const AssistantContext = createContext<AssistantContextType | undefined>(undefin
 const INITIAL_GREETING: ChatMessage = {
   id: "welcome-init",
   sender: "assistant",
-  text: "Welcome to Varun's AI Portfolio Assistant. I can answer questions about Varun's frontend engineering, UI/UX designs, cybersecurity studies, CodeXa Agency leadership, and verified credentials. How may I assist you?",
+  text: "Welcome to Harish's AI Portfolio Assistant. I can answer questions about Harish's software development, academic background at Narasaraopeta Engineering College, programming skills in C, Java, Python, HTML, Supabase, and cybersecurity interests. How may I assist you?",
   timestamp: "Just now",
   links: [
-    { label: "Selected Projects", url: "/#projects" },
-    { label: "CodeXa Experience", url: "/#experience" },
-    { label: "Credentials Archive", url: "/achievements" }
+    { label: "Academic Journey", url: "/#education" },
+    { label: "Technical Skills", url: "/#skills" },
+    { label: "Achievements", url: "/#achievements" },
+    { label: "Contact Harish", url: "/#contact" }
   ]
 };
 
@@ -183,14 +184,14 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
         const errCode = errorData.error || "UNKNOWN_ERROR";
         setLastErrorCode(errCode);
 
-        let failureText = "Varun’s AI assistant is temporarily unavailable. Please try again later or use the contact links.";
+        let failureText = "Harish’s AI assistant is temporarily unavailable. Please try again later or use the direct contact links.";
         let failureLinks: { label: string; url: string }[] | undefined = [
-          { label: "Contact Varun", url: "/#contact" }
+          { label: "Contact Harish", url: "/#contact" }
         ];
 
         if (errCode === "AI_NOT_CONFIGURED") {
           setIsConfigured(false);
-          failureText = "Varun’s AI assistant is temporarily unavailable. Please try again later or use the contact links.";
+          failureText = "Harish’s AI assistant is temporarily unavailable. Please try again later or use the direct contact links.";
         } else if (errCode === "RATE_LIMITED") {
           failureText = errorData.message || "Inquiry limit reached. Please wait a moment before sending another question.";
           failureLinks = undefined;
@@ -289,9 +290,9 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
         )
       );
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       clearTimeout(timeoutId);
-      if (err.name === "AbortError") {
+      if (err instanceof Error && err.name === "AbortError") {
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === assistantMessageId
@@ -316,7 +317,7 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
                   isError: true,
                   errorCode: "NETWORK_ERROR",
                   isStreaming: false,
-                  links: [{ label: "Contact Varun", url: "/#contact" }]
+                  links: [{ label: "Contact Harish", url: "/#contact" }]
                 }
               : msg
           )
@@ -360,12 +361,13 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
       {
         id: `welcome-${Date.now()}`,
         sender: "assistant",
-        text: "Conversation cleared. Feel free to ask anything about Varun's projects, technical skills, CodeXa operations, or published credentials.",
+        text: "Conversation cleared. Feel free to ask anything about Harish's academic journey, technical skills in C, Java, Python, HTML, Supabase, or development goals.",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         links: [
-          { label: "Selected Projects", url: "/#projects" },
-          { label: "CodeXa Experience", url: "/#experience" },
-          { label: "Credentials Archive", url: "/achievements" }
+          { label: "Academic Journey", url: "/#education" },
+          { label: "Technical Skills", url: "/#skills" },
+          { label: "Achievements", url: "/#achievements" },
+          { label: "Contact Harish", url: "/#contact" }
         ]
       }
     ]);

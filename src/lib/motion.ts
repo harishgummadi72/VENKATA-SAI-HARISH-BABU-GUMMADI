@@ -1,7 +1,6 @@
 "use client";
-
-import { useState, useEffect, useRef, useCallback } from "react";
-import type { Transition, Variants } from "framer-motion";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
 
 // Reusable Easing curves
 export const EASE_EDITORIAL = [0.22, 1, 0.36, 1] as const;
@@ -71,39 +70,91 @@ export const buttonPressVariants: Variants = {
 };
 
 export const cardHoverVariants: Variants = {
-  initial: { y: 0, borderColor: "#D9CCB8" },
+  initial: { y: 0, borderColor: "#262626" },
   hover: {
     y: -3,
-    borderColor: "#AC9062",
+    borderColor: "rgba(255, 122, 0, 0.45)",
     transition: { duration: DURATION_NORMAL, ease: EASE_OUT }
   },
   tap: { scale: 0.99, transition: { duration: 0.1 } }
 };
 
 // Standard accessible keyboard focus ring classes
-export const FOCUS_RING = "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#590B20] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F4EE]";
+export const FOCUS_RING = "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF7A00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]";
+
+export interface FloatingCardProps {
+  children: React.ReactNode;
+  className?: string;
+  duration?: number;
+  distance?: number;
+  delay?: number;
+  index?: number;
+}
+
+/**
+ * Restrained vertical floating wrapper that gently oscillates between 0px and -distance (default -5px).
+ * Separates floating oscillation from inner card hover lift to prevent transform conflicts.
+ * Automatically disabled when prefers-reduced-motion is active.
+ */
+export function FloatingCard({
+  children,
+  className = "",
+  duration,
+  distance = 5,
+  delay,
+  index = 0
+}: FloatingCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  // Staggered durations (4.8s to 6.8s) and delays per card for natural non-synchronized float
+  const durations = [5.8, 5.0, 6.6, 5.2, 6.2, 4.8];
+  const delays = [0, 0.8, 1.5, 0.4, 1.1, 1.9];
+
+  const calculatedDuration = duration ?? durations[index % durations.length];
+  const calculatedDelay = delay ?? delays[index % delays.length];
+
+  if (shouldReduceMotion) {
+    return React.createElement("div", { className }, children);
+  }
+
+  return React.createElement(
+    motion.div,
+    {
+      className,
+      animate: { y: [0, -distance, 0] },
+      transition: {
+        duration: calculatedDuration,
+        delay: calculatedDelay,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "easeInOut"
+      }
+    },
+    children
+  );
+}
 
 /**
  * Hook to pause continuous ambient effects when browser tab is hidden (visibilitychange)
  * or when user prefers reduced motion.
  */
 export function useAmbientAnimation(enabled: boolean = true) {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(() => {
+    if (!enabled) return false;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return false;
+    }
+    return true;
+  });
 
   useEffect(() => {
     if (!enabled) {
-      setIsPlaying(false);
       return;
     }
 
     const checkReducedMotion = () => {
       return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     };
-
-    if (checkReducedMotion()) {
-      setIsPlaying(false);
-      return;
-    }
 
     const handleVisibilityChange = () => {
       setIsPlaying(!document.hidden && !checkReducedMotion());
@@ -115,7 +166,7 @@ export function useAmbientAnimation(enabled: boolean = true) {
     };
   }, [enabled]);
 
-  return isPlaying;
+  return isPlaying && enabled;
 }
 
 /**

@@ -6,8 +6,8 @@ import IntroMontage, { type IntroContent } from "./IntroMontage";
 import { startIntroAudio } from "./intro-audio";
 import styles from "./cinematic-intro.module.css";
 
-const SEEN_KEY = "varun:intro:v1";
-const REPLAY_EVENT = "varun:replay-intro";
+const SEEN_KEY = "harish:intro:v1";
+const REPLAY_EVENT = "harish:replay-intro";
 const DURATION = 7200;
 
 export function ReplayIntroButton() {
@@ -120,10 +120,10 @@ export default function CinematicIntro({ content }: { content: IntroContent }) {
       className={styles.dialog}
       data-phase={phase}
       data-reduced={reduced}
-      aria-label="Parlapalli Varun portfolio introduction"
+      aria-label="Venkata Sai Harish Babu Gummadi portfolio introduction"
       onCancel={(event) => { event.preventDefault(); finish(true); }}
     >
-      <p className="sr-only">A short introduction to Parlapalli Varun&apos;s projects, achievements and leadership. Skip at any time to explore the portfolio.</p>
+      <p className="sr-only">A short introduction to Venkata Sai Harish Babu Gummadi&apos;s portfolio. Skip at any time to explore the portfolio.</p>
       {phase !== "idle" && (
         <div key={run} className={styles.film}>
           <div className={styles.atmosphere} aria-hidden="true" />
@@ -135,7 +135,7 @@ export default function CinematicIntro({ content }: { content: IntroContent }) {
           <div className={styles.titleStage} aria-hidden="true">
             <svg viewBox="0 0 1440 900" className={styles.titleSvg}>
               <defs>
-                <text id={`${id}-name`} x="155" y="545" fontFamily="var(--font-inter), sans-serif" fontSize="295" fontWeight="900" textLength="1130" lengthAdjust="spacingAndGlyphs">VARUN</text>
+                <text id={`${id}-name`} x="155" y="545" fontFamily="var(--font-inter), sans-serif" fontSize="270" fontWeight="900" textLength="1130" lengthAdjust="spacingAndGlyphs">HARISH</text>
                 <clipPath id={`${id}-mask`}><use href={`#${id}-name`} /></clipPath>
                 <linearGradient id={`${id}-metal`} x1="0" x2="0.15" y1="0" y2="1">
                   <stop offset="0" stopColor="#ffefcc" />
@@ -156,15 +156,15 @@ export default function CinematicIntro({ content }: { content: IntroContent }) {
                 </g>
                 <use href={`#${id}-name`} className={styles.metal} fill={`url(#${id}-metal)`} stroke="#f4ddb0" strokeWidth=".7" />
               </g>
-              <text x="720" y="256" textAnchor="middle" className={styles.surname} fill="#e8d5b4" fontSize="37" letterSpacing="19">PARLAPALLI</text>
+              <text x="720" y="256" textAnchor="middle" className={styles.surname} fill="#e8d5b4" fontSize="37" letterSpacing="19">GUMMADI</text>
               <path className={styles.rule} d="M375 602h690" stroke="#b28a58" strokeWidth="1" />
-              <text x="720" y="659" textAnchor="middle" className={styles.descriptor} fill="#c0a88a" fontSize="18" letterSpacing="8">DESIGN. CODE. LEAD.</text>
+              <text x="720" y="659" textAnchor="middle" className={styles.descriptor} fill="#c0a88a" fontSize="18" letterSpacing="8">SOFTWARE. WEB. SECURITY.</text>
             </svg>
             <div className={styles.lightSweep} />
           </div>
 
           <div className={styles.controls}>
-            <span className={styles.brand}>PV <span>/</span> THE INTRODUCTION</span>
+            <span className={styles.brand}>HB <span>/</span> THE INTRODUCTION</span>
             <div className={styles.actions}>
               {!reduced && <button type="button" onClick={toggleSound} className={styles.control} aria-pressed={sound} aria-label={sound ? "Turn intro sound off" : "Turn intro sound on"}>
                 {sound ? <Volume2 size={15} /> : <VolumeX size={15} />}

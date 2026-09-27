@@ -1,168 +1,166 @@
 "use client";
 
-import React, { useState } from "react";
-import { CheckCircle2, Building2, Users, ChevronDown, ChevronUp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { Calendar, School, CheckCircle2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Experience } from "@/types/portfolio";
+import { FloatingCard } from "@/lib/motion";
 
 interface ExperienceSectionProps {
-  experience: Experience[];
+  experience?: Experience[];
 }
 
-export default function ExperienceSection({ experience }: ExperienceSectionProps) {
-  const [expandedCardIds, setExpandedCardIds] = useState<Record<string, boolean>>({});
+export default function ExperienceSection({}: ExperienceSectionProps = {}) {
+  const shouldReduceMotion = useReducedMotion();
 
-  const toggleExpand = (id: string) => {
-    setExpandedCardIds((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  const educationMilestones = [
+    {
+      id: "edu-btech",
+      period: "2025 – 2029",
+      degree: "B.Tech in Computer Science and Engineering",
+      institution: "Narasaraopeta Engineering College",
+      board: "Affiliated to JNTUK (Jawaharlal Nehru Technological University Kakinada)",
+      score: "CGPA: 8.46",
+      status: "Ongoing",
+      badgeColor: "bg-[#121212] text-[#FF9D33] border-[#262626]",
+      description:
+        "Pursuing undergraduate degree in Computer Science and Engineering with a focus on core programming, data structures, full-stack web development, and cybersecurity fundamentals.",
+      highlights: [
+        "Enrolled in 4-Year Undergraduate Technical Programme",
+        "Building foundations in C, Java, Python, and Web Technologies",
+        "Active participation in technical hackathons and problem-solving"
+      ]
+    },
+    {
+      id: "edu-inter",
+      period: "Completed 2025",
+      degree: "Intermediate (12th Standard)",
+      institution: "Narayana",
+      board: "State Board (Andhra Pradesh)",
+      score: "Percentage: 91.3%",
+      status: "Completed",
+      badgeColor: "bg-[#121212] text-[#B7B7B7] border-[#262626]",
+      description:
+        "Completed intermediate education specializing in Mathematics, Physics, and Chemistry (MPC) with distinction, demonstrating strong quantitative and analytical foundations.",
+      highlights: [
+        "Stream: MPC (Mathematics, Physics, Chemistry)",
+        "Graduated with 91.3% Academic Performance",
+        "Strong foundation in calculus, physics, and analytical logic"
+      ]
+    },
+    {
+      id: "edu-ssc",
+      period: "Completed 2023",
+      degree: "Secondary School Certificate (SSC / 10th)",
+      institution: "Kennedy English Medium High School",
+      board: "State Board",
+      score: "Percentage: 87%",
+      status: "Completed",
+      badgeColor: "bg-[#121212] text-[#B7B7B7] border-[#262626]",
+      description:
+        "Completed secondary school education with strong academic performance across mathematics, sciences, and languages.",
+      highlights: [
+        "English Medium Curriculum",
+        "Graduated with 87% Academic Score",
+        "Consistent academic discipline and extracurricular participation"
+      ]
+    }
+  ];
 
   return (
-    <section id="experience" className="relative w-full py-20 px-6 lg:px-16 bg-[#FAF8F3] border-b border-[#D9CCB8] scroll-mt-20">
+    <section id="education" className="relative w-full py-20 px-6 lg:px-16 bg-[#080808] border-b border-[#262626] scroll-mt-20">
       <div className="max-w-[1600px] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-10 mb-12 border-b border-[#D9CCB8]/80 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-10 mb-12 border-b border-[#262626] gap-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-[11px] font-sans tracking-[0.24em] uppercase font-medium text-[#AC9062]">
-                LEADERSHIP &amp; OPERATIONS
+              <span className="text-[11px] font-sans tracking-[0.24em] uppercase font-medium text-[#FF7A00]">
+                ACADEMIC JOURNEY
               </span>
-              <span className="w-8 h-[1px] bg-[#AC9062]" aria-hidden="true" />
+              <span className="w-8 h-[1px] bg-[#FF7A00]" aria-hidden="true" />
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-normal leading-[1.05] text-[#20060B]">
-              Chief Operating Officer at CodeXa Agency.
+            <h2 className="font-display text-4xl sm:text-5xl font-normal leading-[1.05] text-[#F5F5F5]">
+              Education &amp; Academic Milestones.
             </h2>
           </div>
-          <span className="font-display text-4xl sm:text-5xl text-[#AC9062]/30 leading-none select-none">
+          <span className="font-display text-4xl sm:text-5xl text-[#FF7A00]/25 leading-none select-none">
             03
           </span>
         </div>
 
-        {/* Experience Showcase Card */}
-        {experience.map((exp) => {
-          const isExpanded = !!expandedCardIds[exp.id];
-          const hasMore = exp.contributions.length > 6;
-          const initialItems = exp.contributions.slice(0, 6);
-          const remainingItems = exp.contributions.slice(6);
-
-          // Clean executive note text ensuring no duplicate prefix
-          const executiveNoteContent = exp.cooDistinction
-            ? exp.cooDistinction.replace(/^Executive (?:Structure Note|Role):\s*/i, "")
-            : "Serving as Chief Operating Officer at CodeXa Agency, responsible for coordinating daily operations, project execution, internal teams, client communication, delivery processes, and organizational workflows in collaboration with the founders and executive leadership.";
-
-          return (
-            <div
-              key={exp.id}
-              className="rounded-2xl border border-[#D9CCB8] bg-white p-8 lg:p-12 shadow-[0_12px_36px_rgba(89,11,32,0.05)]"
-            >
-              {/* Header: Role & Organization */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 border-b border-[#E8DFD1] gap-4">
+        {/* Education Timeline Grid with FloatingCard Wrappers */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {educationMilestones.map((edu, idx) => (
+            <FloatingCard key={edu.id} index={idx} distance={5}>
+              <motion.div
+                initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: shouldReduceMotion ? 0 : idx * 0.1,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                className="flex flex-col justify-between h-full rounded-2xl border border-[#262626] bg-[#151515] p-7 lg:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.7)] hover:shadow-[0_16px_48px_rgba(255,122,0,0.12)] hover:border-[#FF7A00]/50 transition-all duration-300"
+              >
                 <div>
-                  <div className="flex items-center gap-2.5 text-[#590B20] text-xs font-sans font-semibold uppercase tracking-wider mb-2">
-                    <Building2 className="w-4 h-4 text-[#AC9062]" />
-                    <span>{exp.company}</span>
-                    <span className="text-[#D9CCB8]">·</span>
-                    <span className="text-[#AC9062]">Active Venture</span>
+                  {/* Top Badge & Year */}
+                  <div className="flex items-center justify-between gap-3 pb-4 mb-5 border-b border-[#262626]">
+                    <div className="flex items-center gap-2 text-xs font-sans text-[#FF7A00] font-medium">
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>{edu.period}</span>
+                    </div>
+                    <span className={`text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full border ${edu.badgeColor}`}>
+                      {edu.status}
+                    </span>
                   </div>
-                  <h3 className="font-display text-3xl sm:text-4xl text-[#20060B] font-medium tracking-tight">
-                    {exp.role}
+
+                  {/* Degree Title */}
+                  <h3 className="font-display text-2xl text-[#F5F5F5] font-medium mb-3 leading-snug">
+                    {edu.degree}
                   </h3>
+
+                  {/* Institution Details */}
+                  <div className="space-y-1.5 mb-5 font-sans">
+                    <div className="flex items-start gap-2 text-sm font-semibold text-[#F5F5F5]">
+                      <School className="w-4 h-4 text-[#FF7A00] shrink-0 mt-0.5" />
+                      <span>{edu.institution}</span>
+                    </div>
+                    <p className="text-xs text-[#818181] pl-6 leading-relaxed">
+                      {edu.board}
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-[#B7B7B7] font-editorial leading-relaxed mb-6">
+                    {edu.description}
+                  </p>
+
+                  {/* Highlights List */}
+                  <div className="space-y-2 pt-4 border-t border-[#262626]">
+                    {edu.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-[#B7B7B7] font-sans">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#FF7A00] shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3 self-start sm:self-auto">
-                  <span className="px-3.5 py-1 rounded-full text-xs font-sans font-semibold bg-[#590B20]/10 text-[#590B20] border border-[#590B20]/20 tracking-wider uppercase">
-                    CURRENT ROLE
+                {/* Bottom Score Footer */}
+                <div className="mt-6 pt-4 border-t border-[#262626] flex items-center justify-between">
+                  <span className="text-[11px] uppercase tracking-wider font-sans text-[#818181]">
+                    Academic Score
+                  </span>
+                  <span className="text-sm font-bold text-[#FF7A00] font-sans">
+                    {edu.score}
                   </span>
                 </div>
-              </div>
-
-              {/* Distinction & Operational Clarity Note */}
-              <div className="my-6 p-4 bg-[#F7F4EE] rounded-xl border border-[#D9CCB8]/80 text-xs font-sans text-[#20060B]/85 flex items-start gap-3 leading-relaxed">
-                <Users className="w-4 h-4 text-[#AC9062] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-semibold text-[#590B20]">Executive Role: </span>
-                  {executiveNoteContent}
-                </div>
-              </div>
-
-              {/* Summary & Practical Contributions */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
-                {/* Left Column: Scope & Mandate */}
-                <div className="lg:col-span-5">
-                  <h4 className="text-sm font-sans uppercase tracking-wider font-semibold text-[#20060B] mb-3">
-                    Scope &amp; Mandate
-                  </h4>
-                  <p className="text-base text-[#68626B] font-editorial leading-relaxed">
-                    {exp.summary}
-                  </p>
-                </div>
-
-                {/* Right Column: Key Practical Responsibilities */}
-                <div className="lg:col-span-7">
-                  <h4 className="text-sm font-sans uppercase tracking-wider font-semibold text-[#20060B] mb-4">
-                    Key Practical Responsibilities
-                  </h4>
-                  <ul id={`responsibilities-list-${exp.id}`} className="space-y-3">
-                    {initialItems.map((item, idx) => (
-                      <li key={`init-${idx}`} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-[#AC9062] shrink-0 mt-1" />
-                        <span className="text-sm text-[#20060B] font-sans leading-relaxed">
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-
-                    <AnimatePresence initial={false}>
-                      {isExpanded &&
-                        remainingItems.map((item, idx) => (
-                          <motion.li
-                            key={`extra-${idx}`}
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.25, ease: "easeInOut" }}
-                            className="flex items-start gap-3 overflow-hidden"
-                          >
-                            <CheckCircle2 className="w-4 h-4 text-[#AC9062] shrink-0 mt-1" />
-                            <span className="text-sm text-[#20060B] font-sans leading-relaxed">
-                              {item}
-                            </span>
-                          </motion.li>
-                        ))}
-                    </AnimatePresence>
-                  </ul>
-
-                  {hasMore && (
-                    <div className="pt-4">
-                      <button
-                        type="button"
-                        onClick={() => toggleExpand(exp.id)}
-                        aria-expanded={isExpanded}
-                        aria-controls={`responsibilities-list-${exp.id}`}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-sans font-semibold tracking-wide text-[#590B20] bg-[#590B20]/5 hover:bg-[#590B20]/10 border border-[#590B20]/20 transition-colors cursor-pointer"
-                      >
-                        <span>
-                          {isExpanded
-                            ? "Show Fewer Responsibilities"
-                            : `View All Responsibilities (${exp.contributions.length})`}
-                        </span>
-                        {isExpanded ? (
-                          <ChevronUp className="w-3.5 h-3.5" />
-                        ) : (
-                          <ChevronDown className="w-3.5 h-3.5" />
-                        )}
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+              </motion.div>
+            </FloatingCard>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-

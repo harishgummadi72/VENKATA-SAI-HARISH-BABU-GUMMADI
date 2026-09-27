@@ -26,20 +26,12 @@ for (const cat of COMPETENCY_CATEGORIES) {
 
 const STANDARD_CATEGORIES: { name: string; tagline: string }[] = [
   {
-    name: "Development",
-    tagline: "Modern web applications, component architecture, and responsive interfaces."
-  },
-  {
-    name: "Design & Prototyping",
-    tagline: "User-centered interface design, design systems, and interaction models."
-  },
-  {
     name: "Programming Foundations",
-    tagline: "Core syntax, systems, algorithmic thinking, and security principles."
+    tagline: "Core syntax, procedural logic, object-oriented concepts, and algorithmic problem solving."
   },
   {
-    name: "Tools & Workflow",
-    tagline: "Developer tooling, version control, build pipelines, and cloud deployment."
+    name: "Development",
+    tagline: "Web markup, semantic document structure, and backend database workflows."
   }
 ];
 
@@ -159,30 +151,30 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
   return (
     <section
       id="skills"
-      className="relative w-full py-20 px-6 lg:px-16 bg-[#FAF8F3] border-b border-[#D9CCB8] scroll-mt-20"
+      className="relative w-full py-20 px-6 lg:px-16 bg-[#0D0D0D] border-b border-[#262626] scroll-mt-20"
     >
       <div className="max-w-[1600px] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-10 mb-12 border-b border-[#D9CCB8]/80 gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between pb-10 mb-12 border-b border-[#262626] gap-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-[11px] font-sans tracking-[0.24em] uppercase font-medium text-[#AC9062]">
+              <span className="text-[11px] font-sans tracking-[0.24em] uppercase font-medium text-[#FF7A00]">
                 TECHNICAL COMPETENCIES
               </span>
-              <span className="w-8 h-[1px] bg-[#AC9062]" aria-hidden="true" />
+              <span className="w-8 h-[1px] bg-[#FF7A00]" aria-hidden="true" />
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-normal leading-[1.05] text-[#20060B]">
-              Skills Grounded in Practice &amp; Projects.
+            <h2 className="font-display text-4xl sm:text-5xl font-normal leading-[1.05] text-[#F5F5F5]">
+              Core Technical Skills &amp; Foundations.
             </h2>
           </div>
-          <span className="font-display text-4xl sm:text-5xl text-[#AC9062]/30 leading-none select-none">
+          <span className="font-display text-4xl sm:text-5xl text-[#FF7A00]/25 leading-none select-none">
             04
           </span>
         </div>
 
         {/* Mobile & Tablet Category Tabs (Horizontally scrollable) */}
         <div className="lg:hidden mb-8">
-          <div className="text-[10px] font-sans tracking-[0.2em] uppercase font-semibold text-[#AC9062] mb-3">
+          <div className="text-[10px] font-sans tracking-[0.2em] uppercase font-semibold text-[#FF7A00] mb-3">
             Select Discipline
           </div>
           <div
@@ -200,15 +192,15 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                   aria-selected={isActive}
                   aria-controls={`competency-panel-${cat.id}`}
                   onClick={() => handleCategoryChange(cat.id)}
-                  className={`shrink-0 min-h-[44px] px-4 py-2 rounded-full text-xs font-sans transition-all flex items-center gap-2 snap-start cursor-pointer focus-visible:ring-2 focus-visible:ring-[#590B20] focus-visible:outline-none ${
+                  className={`shrink-0 min-h-[44px] px-4 py-2 rounded-full text-xs font-sans transition-all flex items-center gap-2 snap-start cursor-pointer focus-visible:ring-2 focus-visible:ring-[#FF7A00] focus-visible:outline-none ${
                     isActive
-                      ? "bg-[#590B20] text-white font-semibold shadow-sm border border-[#590B20]"
-                      : "bg-white text-[#68626B] hover:text-[#20060B] border border-[#D9CCB8]"
+                      ? "bg-[#FF7A00] text-[#080808] font-bold shadow-sm border border-[#FF7A00]"
+                      : "bg-[#151515] text-[#B7B7B7] hover:text-[#F5F5F5] border border-[#262626]"
                   }`}
                 >
                   <span
                     className={`font-mono text-[11px] ${
-                      isActive ? "text-[#AC9062]" : "text-[#AC9062]"
+                      isActive ? "text-[#080808]" : "text-[#FF7A00]"
                     }`}
                   >
                     {cat.number}
@@ -224,8 +216,8 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Sticky Category Navigator (Desktop) */}
           <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">
-            <div className="sticky top-28 space-y-2 pr-6 border-r border-[#E8DFD1]">
-              <div className="text-[10px] font-sans tracking-[0.24em] uppercase font-semibold text-[#AC9062] mb-4">
+            <div className="sticky top-28 space-y-2 pr-6 border-r border-[#262626]">
+              <div className="text-[10px] font-sans tracking-[0.24em] uppercase font-semibold text-[#FF7A00] mb-4">
                 Disciplines Index
               </div>
               <nav
@@ -243,16 +235,16 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                       aria-selected={isActive}
                       aria-controls={`competency-panel-${cat.id}`}
                       onClick={() => handleCategoryChange(cat.id)}
-                      className={`w-full text-left py-3 px-3.5 rounded-lg transition-all relative flex items-center justify-between group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#590B20] focus-visible:outline-none ${
+                      className={`w-full text-left py-3 px-3.5 rounded-lg transition-all relative flex items-center justify-between group cursor-pointer focus-visible:ring-2 focus-visible:ring-[#FF7A00] focus-visible:outline-none ${
                         isActive
-                          ? "text-[#590B20] font-semibold bg-[#590B20]/5"
-                          : "text-[#68626B] hover:text-[#20060B] hover:bg-[#20060B]/[0.02] font-normal"
+                          ? "text-[#FF7A00] font-semibold bg-[#FF7A00]/10 border border-[#FF7A00]/25"
+                          : "text-[#B7B7B7] hover:text-[#F5F5F5] hover:bg-[#151515] font-normal"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`text-xs font-mono transition-colors ${
-                            isActive ? "text-[#590B20] font-bold" : "text-[#AC9062]"
+                            isActive ? "text-[#FF7A00] font-bold" : "text-[#FF7A00]/70"
                           }`}
                         >
                           {cat.number}
@@ -265,7 +257,7 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                       {isActive && (
                         <motion.span
                           layoutId="active-category-indicator"
-                          className="w-1 h-5 bg-[#AC9062] rounded-full shrink-0"
+                          className="w-1 h-5 bg-[#FF7A00] rounded-full shrink-0 shadow-[0_0_8px_rgba(255,122,0,0.6)]"
                           aria-hidden="true"
                           transition={{ type: "spring", stiffness: 350, damping: 30 }}
                         />
@@ -276,9 +268,9 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
               </nav>
 
               {/* Minimal Note */}
-              <div className="pt-8 mt-8 border-t border-[#E8DFD1]/60 pr-2">
-                <p className="text-[11px] font-sans text-[#68626B]/80 leading-relaxed">
-                  Competencies are cataloged with verified application contexts from active ventures, coursework, and open-source platforms.
+              <div className="pt-8 mt-8 border-t border-[#262626] pr-2">
+                <p className="text-[11px] font-sans text-[#818181] leading-relaxed">
+                  Competencies are cataloged with verified application contexts from academic coursework, programming practice, and software exploration.
                 </p>
               </div>
             </div>
@@ -299,22 +291,22 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                 className="space-y-0"
               >
                 {/* Discipline Header Banner */}
-                <div className="pb-6 mb-2 border-b border-[#D9CCB8] flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                <div className="pb-6 mb-2 border-b border-[#262626] flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                   <div>
-                    <span className="text-xs font-mono text-[#AC9062] font-semibold tracking-wider">
+                    <span className="text-xs font-mono text-[#FF7A00] font-semibold tracking-wider">
                       DISCIPLINE {activeCategory.number}
                     </span>
-                    <h3 className="font-display text-2xl sm:text-3xl text-[#20060B] font-medium mt-1">
+                    <h3 className="font-display text-2xl sm:text-3xl text-[#F5F5F5] font-medium mt-1">
                       {activeCategory.name}
                     </h3>
                   </div>
-                  <p className="text-xs text-[#68626B] font-sans italic sm:text-right">
+                  <p className="text-xs text-[#818181] font-sans italic sm:text-right">
                     {activeCategory.tagline}
                   </p>
                 </div>
 
                 {/* Editorial Competency Rows (Separated by thin horizontal line, not cards) */}
-                <div className="divide-y divide-[#E8DFD1]">
+                <div className="divide-y divide-[#262626]">
                   {activeCategory.skills.map((skill) => {
                     const isExpanded = expandedSkillId === skill.id;
 
@@ -329,34 +321,34 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                           onClick={() => toggleSkill(skill.id)}
                           aria-expanded={isExpanded}
                           aria-controls={`skill-details-${skill.id}`}
-                          className="w-full text-left flex items-start justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#590B20] focus-visible:outline-none rounded-lg p-1.5 -m-1.5 transition-all"
+                          className="w-full text-left flex items-start justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#FF7A00] focus-visible:outline-none rounded-lg p-1.5 -m-1.5 transition-all"
                         >
                           <div className="space-y-2 pr-2">
                             <div className="flex flex-wrap items-center gap-2.5">
-                              <h4 className="font-display text-xl sm:text-2xl text-[#20060B] group-hover:text-[#590B20] transition-colors font-medium">
+                              <h4 className="font-display text-xl sm:text-2xl text-[#F5F5F5] group-hover:text-[#FF7A00] transition-colors font-medium">
                                 {skill.name}
                               </h4>
-                              <span className="text-[10px] uppercase font-sans tracking-wider font-semibold text-[#AC9062] bg-[#AC9062]/10 border border-[#AC9062]/20 px-2 py-0.5 rounded-full">
+                              <span className="text-[10px] uppercase font-sans tracking-wider font-semibold text-[#FF7A00] bg-[#FF7A00]/10 border border-[#FF7A00]/25 px-2 py-0.5 rounded-full">
                                 {skill.classification}
                               </span>
                             </div>
 
-                            <p className="text-sm text-[#68626B] font-editorial leading-relaxed max-w-3xl">
+                            <p className="text-sm text-[#B7B7B7] font-editorial leading-relaxed max-w-3xl">
                               {skill.shortUsage}
                             </p>
 
-                            <p className="text-xs text-[#590B20] font-sans font-medium flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#AC9062]" aria-hidden="true" />
+                            <p className="text-xs text-[#FF7A00] font-sans font-medium flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A00]" aria-hidden="true" />
                               <span>{skill.appliedIn}</span>
                             </p>
                           </div>
 
                           {/* Minimal Expand/Collapse Icon */}
                           <div
-                            className={`w-8 h-8 rounded-full border border-[#D9CCB8] flex items-center justify-center shrink-0 transition-all mt-0.5 ${
+                            className={`w-8 h-8 rounded-full border border-[#262626] flex items-center justify-center shrink-0 transition-all mt-0.5 ${
                               isExpanded
-                                ? "border-[#590B20] bg-[#590B20] text-white shadow-xs"
-                                : "text-[#AC9062] group-hover:border-[#590B20] group-hover:text-[#590B20] bg-white"
+                                ? "border-[#FF7A00] bg-[#FF7A00] text-[#080808] shadow-xs"
+                                : "text-[#FF7A00] group-hover:border-[#FF7A00] group-hover:text-[#FF8C1A] bg-[#151515]"
                             }`}
                             aria-hidden="true"
                           >
@@ -379,27 +371,27 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                               transition={{ duration: 0.28, ease: "easeInOut" }}
                               className="overflow-hidden"
                             >
-                              <div className="pt-6 pb-2 pl-0 sm:pl-3 space-y-5 text-sm border-t border-[#E8DFD1]/50 mt-4">
+                              <div className="pt-6 pb-2 pl-0 sm:pl-3 space-y-5 text-sm border-t border-[#262626] mt-4">
                                 {/* Detailed Practical Usage */}
                                 <div>
-                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#AC9062] mb-1.5">
+                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#FF7A00] mb-1.5">
                                     Practical Usage &amp; Engineering Role
                                   </div>
-                                  <p className="text-sm text-[#20060B] font-sans leading-relaxed">
+                                  <p className="text-sm text-[#F5F5F5] font-sans leading-relaxed">
                                     {skill.practicalUsage}
                                   </p>
                                 </div>
 
                                 {/* Areas of Implementation */}
                                 <div>
-                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#AC9062] mb-2">
+                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#FF7A00] mb-2">
                                     Areas of Implementation
                                   </div>
                                   <div className="flex flex-wrap gap-2">
                                     {skill.areasOfImplementation.map((area, i) => (
                                       <span
                                         key={i}
-                                        className="text-xs text-[#20060B] bg-white border border-[#D9CCB8] px-3 py-1 rounded-md font-sans shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
+                                        className="text-xs text-[#F5F5F5] bg-[#151515] border border-[#262626] px-3 py-1 rounded-md font-sans shadow-xs"
                                       >
                                         {area}
                                       </span>
@@ -409,10 +401,10 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
 
                                 {/* Related Tools & Technologies */}
                                 <div>
-                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#AC9062] mb-1.5">
+                                  <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#FF7A00] mb-1.5">
                                     Related Tools &amp; Technologies
                                   </div>
-                                  <div className="flex flex-wrap gap-1.5 text-xs text-[#68626B] font-mono">
+                                  <div className="flex flex-wrap gap-1.5 text-xs text-[#818181] font-mono">
                                     {skill.relatedTechnologies.map((tech, i) => (
                                       <span
                                         key={i}
@@ -426,21 +418,21 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
 
                                 {/* Genuine Project Evidence & References */}
                                 {skill.projectEvidence && skill.projectEvidence.length > 0 && (
-                                  <div className="pt-3 border-t border-[#E8DFD1]">
-                                    <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#AC9062] mb-3">
+                                  <div className="pt-3 border-t border-[#262626]">
+                                    <div className="text-[11px] uppercase tracking-wider font-sans font-semibold text-[#FF7A00] mb-3">
                                       Project Evidence &amp; References
                                     </div>
                                     <div className="space-y-2.5">
                                       {skill.projectEvidence.map((ev, i) => (
                                         <div
                                           key={i}
-                                          className="bg-white/80 p-4 rounded-xl border border-[#D9CCB8] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs"
+                                          className="bg-[#151515] p-4 rounded-xl border border-[#262626] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs"
                                         >
                                           <div>
-                                            <div className="font-sans font-semibold text-[#20060B] text-xs">
+                                            <div className="font-sans font-semibold text-[#F5F5F5] text-xs">
                                               {ev.name}
                                             </div>
-                                            <p className="text-xs text-[#68626B] font-sans mt-0.5">
+                                            <p className="text-xs text-[#818181] font-sans mt-0.5">
                                               {ev.description}
                                             </p>
                                           </div>
@@ -452,7 +444,7 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                                                   href={link.url}
                                                   target={link.isExternal ? "_blank" : undefined}
                                                   rel={link.isExternal ? "noopener noreferrer" : undefined}
-                                                  className="inline-flex items-center gap-1 text-xs text-[#590B20] hover:text-[#20060B] font-medium font-sans underline underline-offset-4 decoration-[#AC9062]/60 hover:decoration-[#590B20] transition-colors"
+                                                  className="inline-flex items-center gap-1 text-xs text-[#FF7A00] hover:text-[#FF8C1A] font-medium font-sans underline underline-offset-4 decoration-[#FF7A00]/40 hover:decoration-[#FF7A00] transition-colors"
                                                 >
                                                   <span>{link.label}</span>
                                                   {link.isExternal ? (

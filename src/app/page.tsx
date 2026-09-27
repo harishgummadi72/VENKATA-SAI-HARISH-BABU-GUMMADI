@@ -18,7 +18,6 @@ import AchievementsSection from "@/components/sections/AchievementsSection";
 import CurrentlyLearning from "@/components/sections/CurrentlyLearning";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
-import CinematicIntro from "@/components/intro/CinematicIntro";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -34,15 +33,10 @@ export default async function HomePage() {
 
   return (
     <>
-      <CinematicIntro content={{
-        projects: projects.slice(0, 3).map(({ title, category }) => ({ title, category })),
-        milestones: achievements.slice(0, 2).map(({ title, result, teamOrIndividual }) => ({ title, result, teamOrIndividual })),
-        leadership: experience[0] ? { company: experience[0].company, role: experience[0].role } : undefined,
-      }} />
       {/* Sticky Horizontal Top Header */}
       <TopHeader />
 
-      <main className="min-h-screen bg-[#F7F4EE] flex flex-col selection:bg-[#590B20] selection:text-white">
+      <main className="min-h-screen bg-[#080808] flex flex-col selection:bg-[#FF7A00] selection:text-black">
         {/* Full-Width Centered Editorial Hero */}
         <HeroSection profile={profile} />
 
@@ -52,7 +46,7 @@ export default async function HomePage() {
         {/* About and Education */}
         <AboutEducation profile={profile} />
 
-        {/* CodeXa Experience */}
+        {/* Academic Journey / Education */}
         <ExperienceSection experience={experience} />
 
         {/* Skills Connected to Work */}
@@ -68,7 +62,7 @@ export default async function HomePage() {
         <ContactSection profile={profile} />
 
         {/* Minimal Footer */}
-        <Footer showIntroReplay />
+        <Footer />
       </main>
     </>
   );

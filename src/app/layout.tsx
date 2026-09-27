@@ -21,22 +21,40 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || "https://varun-parlapalli.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Parlapalli Varun — Frontend Developer & UI/UX Designer | Royal Atelier",
-  description: "Personal portfolio of Parlapalli Varun. Cybersecurity Undergraduate, COO at CodeXa Agency, Frontend Developer & UI/UX Designer turning ideas into clear, responsive digital products.",
-  keywords: ["Parlapalli Varun", "Frontend Developer", "UI/UX Designer", "CodeXa Agency", "Cybersecurity", "NEC Portal", "Portfolio"],
-  authors: [{ name: "Parlapalli Varun" }],
-  creator: "Parlapalli Varun",
+  title: "Venkata Sai Harish Babu Gummadi | Software Developer",
+  description:
+    "Portfolio of Venkata Sai Harish Babu Gummadi, a Computer Science and Engineering student focused on software development, full-stack web development, artificial intelligence and cybersecurity.",
+  keywords: [
+    "Venkata Sai Harish Babu Gummadi",
+    "Harish Babu",
+    "Software Developer",
+    "Full Stack Web Development",
+    "Artificial Intelligence",
+    "Generative AI",
+    "Cybersecurity",
+    "Narasaraopeta Engineering College",
+    "Portfolio",
+  ],
+  authors: [{ name: "Venkata Sai Harish Babu Gummadi" }],
+  creator: "Venkata Sai Harish Babu Gummadi",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Parlapalli Varun — Royal Atelier Portfolio",
-    description: "I turn ideas into clear, responsive digital products through design, code, and thoughtful execution.",
-    siteName: "Parlapalli Varun Portfolio",
+    title: "Venkata Sai Harish Babu Gummadi | Software Developer",
+    description:
+      "Portfolio of Venkata Sai Harish Babu Gummadi, a Computer Science and Engineering student focused on software development, full-stack web development, artificial intelligence and cybersecurity.",
+    siteName: "Venkata Sai Harish Babu Gummadi Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Venkata Sai Harish Babu Gummadi | Software Developer",
+    description:
+      "Portfolio of Venkata Sai Harish Babu Gummadi, a Computer Science and Engineering student focused on software development, full-stack web development, artificial intelligence and cybersecurity.",
   },
   robots: {
     index: true,
@@ -47,9 +65,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
@@ -64,12 +80,35 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Venkata Sai Harish Babu Gummadi",
+    alternateName: "Harish Babu",
+    jobTitle: "Software Developer",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Narasaraopeta Engineering College",
+    },
+    url: siteUrl,
+    sameAs: [
+      "https://www.linkedin.com/in/harish-gummadi-18a3153a7/",
+      "https://github.com/harishgummadi72",
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${bodoni.variable} ${inter.variable} ${cormorant.variable} antialiased overflow-x-hidden`}
     >
-      <body className="min-h-screen bg-[#F7F4EE] text-[#20060B] selection:bg-[#590B20] selection:text-[#F7F4EE] overflow-x-hidden">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="min-h-screen bg-[#080808] text-[#F5F5F5] selection:bg-[#FF7A00] selection:text-black overflow-x-hidden">
         <AssistantProvider>
           {children}
           <AssistantModal />
@@ -79,4 +118,3 @@ export default function RootLayout({
     </html>
   );
 }
-

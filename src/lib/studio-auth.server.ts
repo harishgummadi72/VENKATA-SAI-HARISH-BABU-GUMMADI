@@ -108,7 +108,7 @@ export function verifyAdminCredentials(_emailAttempt: string, passwordAttempt: s
 export function createSessionToken(email?: string): string {
   const secret = getSessionSecret();
   const now = Math.floor(Date.now() / 1000);
-  const ownerEmail = (email || process.env.ADMIN_EMAIL || "varunparlapalli2008@gmail.com").trim().toLowerCase();
+  const ownerEmail = (email || process.env.ADMIN_EMAIL || "gummadivenkatasaiharishbabu@gmail.com").trim().toLowerCase();
 
   const payload: SessionPayload = {
     role: "studio_owner",

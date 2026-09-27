@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { MapPin, Sparkles, Send, ArrowRight } from "lucide-react";
+import { MapPin, Sparkles, Send, ExternalLink, Mail } from "lucide-react";
 import { useAssistant } from "../ai/AssistantContext";
 import ArchitecturalArtwork from "./ArchitecturalArtwork";
 import { useAmbientAnimation, FOCUS_RING } from "@/lib/motion";
@@ -17,15 +17,19 @@ export default function FullWidthHero({ profile }: FullWidthHeroProps) {
   const [query, setQuery] = useState("");
   const isAmbientActive = useAmbientAnimation();
 
-  const rawName = (profile?.name || "PARLAPALLI VARUN").trim();
-  const nameParts = rawName.split(/\s+/);
-  const firstLine = nameParts.length > 1 ? nameParts.slice(0, -1).join(" ") : nameParts[0];
-  const secondLine = nameParts.length > 1 ? nameParts[nameParts.length - 1] : "";
+  const rawName = (profile?.name || "VENKATA SAI HARISH BABU GUMMADI").trim();
+  
+  // Format long name into 3 visually balanced editorial lines
+  const nameLines = rawName === "VENKATA SAI HARISH BABU GUMMADI"
+    ? ["VENKATA SAI", "HARISH BABU", "GUMMADI"]
+    : rawName.split(/\s+/).length >= 4
+      ? ["VENKATA SAI", "HARISH BABU", rawName.split(/\s+/).slice(4).join(" ") || "GUMMADI"]
+      : [rawName];
 
   const handleQuerySubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) {
-      openAssistant("Tell me about the NEC Portal project.");
+      openAssistant("Tell me about Harish's education and technical skills.");
       return;
     }
     openAssistant(query.trim());
@@ -33,138 +37,152 @@ export default function FullWidthHero({ profile }: FullWidthHeroProps) {
   };
 
   const handleExampleClick = () => {
-    openAssistant("Tell me about the NEC Portal project.");
+    openAssistant("Tell me about Harish's education and technical skills.");
   };
 
   return (
     <section
       id="top"
-      className="relative w-full min-h-[calc(100svh-72px)] flex flex-col justify-between py-8 sm:py-12 px-6 lg:px-16 bg-[#F7F4EE] paper-grain border-b border-[#D9CCB8] overflow-hidden"
+      className="relative w-full min-h-[calc(100svh-72px)] flex flex-col justify-between py-8 sm:py-12 px-6 lg:px-16 bg-[#080808] paper-grain border-b border-[#262626] overflow-hidden"
     >
       {/* Delicate Architectural Linework in Background with visibility-aware ambient breathing */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25 select-none z-0">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 select-none z-0">
         <ArchitecturalArtwork className="w-full max-w-5xl h-auto" isAmbientActive={isAmbientActive} />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto w-full flex-1 flex flex-col justify-between items-center text-center">
         {/* Top Secondary Information */}
         <div
-          className="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] tracking-[0.15em] sm:tracking-[0.18em] uppercase font-sans text-[#68626B] pb-4 gap-2 anim-fade-up"
+          className="w-full flex flex-col sm:flex-row items-center justify-between text-[11px] tracking-[0.15em] sm:tracking-[0.18em] uppercase font-sans text-[#818181] pb-4 gap-2 anim-fade-up"
           style={{ animationDelay: "0.05s" }}
         >
-          <div className="flex items-center gap-1.5 text-[#68626B]">
-            <MapPin className="w-3.5 h-3.5 text-[#AC9062]" />
-            <span>{profile?.location || "Guntur, Andhra Pradesh"}</span>
+          <div className="flex items-center gap-1.5 text-[#B7B7B7]">
+            <MapPin className="w-3.5 h-3.5 text-[#FF7A00]" />
+            <span>{profile?.location || "Guntur, Andhra Pradesh, India"}</span>
           </div>
-          <div className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] text-[#68626B]">
+          <div className="text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] text-[#818181]">
             BUILD · LEARN · COLLABORATE
           </div>
         </div>
 
         {/* Center: Main Balanced Editorial Introduction */}
         <div className="my-auto py-4 sm:py-8 w-full flex flex-col items-center">
-          {/* Eyebrow with Animated Gold Rule */}
+          {/* Eyebrow with Animated Orange Rule */}
           <div
             className="flex items-center justify-center gap-3 mb-4 anim-fade-up"
             style={{ animationDelay: "0.15s" }}
           >
-            <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] uppercase font-medium text-[#20060B]">
-              DESIGN MEETS SYSTEMS
+            <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] uppercase font-medium text-[#F5F5F5]">
+              SOFTWARE &amp; SYSTEMS
             </span>
             <span
-              className="h-[1px] bg-[#AC9062] inline-block anim-rule"
+              className="h-[1px] bg-[#FF7A00] inline-block anim-rule"
               style={{ animationDelay: "0.25s" }}
               aria-hidden="true"
             />
           </div>
 
           {/* Dominant Heading: Dynamic Name from Profile */}
-          <h1 className="font-display text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[92px] font-normal leading-[0.92] tracking-[-0.015em] text-[#20060B] mb-5 sm:mb-6 max-w-full">
-            <span
-              className="block anim-fade-up"
-              style={{ animationDelay: "0.25s" }}
-            >
-              {firstLine}
-            </span>
-            {secondLine && (
+          <h1 className="font-display text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-normal leading-[0.95] tracking-[-0.015em] text-[#F5F5F5] mb-5 sm:mb-6 max-w-full">
+            {nameLines.map((line, idx) => (
               <span
-                className="block text-[#20060B] anim-fade-up"
-                style={{ animationDelay: "0.38s" }}
+                key={idx}
+                className="block anim-fade-up"
+                style={{ animationDelay: `${0.25 + idx * 0.1}s` }}
               >
-                {secondLine}
+                {line}
               </span>
-            )}
+            ))}
           </h1>
 
           {/* Role & Supporting Role */}
           <div
             className="space-y-1 mb-5 sm:mb-6 anim-fade-up max-w-full px-2"
-            style={{ animationDelay: "0.5s" }}
+            style={{ animationDelay: "0.55s" }}
           >
-            {profile?.primaryRole && (
-              <p className="text-lg sm:text-2xl font-medium text-[#20060B] tracking-tight font-sans">
-                {profile.primaryRole}
-              </p>
-            )}
-            {profile?.supportingRole && (
-              <p className="text-xs sm:text-[15px] text-[#68626B] font-sans">
-                {profile.supportingRole}
-              </p>
-            )}
+            <p className="text-lg sm:text-2xl font-medium text-[#F5F5F5] tracking-tight font-sans">
+              {profile?.primaryRole || "Software Developer"}
+            </p>
+            <p className="text-xs sm:text-[15px] text-[#B7B7B7] font-sans">
+              {profile?.supportingRole || "Full Stack Web Development · AI · Cybersecurity"}
+            </p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-wider text-[#FF7A00] font-sans font-medium pt-1">
+              Computer Science and Engineering Undergraduate
+            </p>
           </div>
 
           {/* Editorial Introduction Paragraph */}
           <p
-            className="text-sm sm:text-lg leading-relaxed text-[#20060B]/90 font-editorial max-w-2xl mb-6 sm:mb-8 anim-fade-up px-2 sm:px-0"
-            style={{ animationDelay: "0.62s" }}
+            className="text-sm sm:text-base md:text-lg leading-relaxed text-[#B7B7B7] font-editorial max-w-2xl mb-6 sm:mb-8 anim-fade-up px-2 sm:px-0"
+            style={{ animationDelay: "0.65s" }}
           >
-            {profile?.introduction || "I turn ideas into clear, responsive digital products through design, code, and thoughtful execution."}
+            {profile?.introduction ||
+              "Computer Science and Engineering student with hands-on experience developing AI-enabled web applications and participating in competitive internal hackathons. Interested in full-stack development, artificial intelligence, software engineering and cybersecurity."}
           </p>
 
           {/* Action Buttons */}
           <div
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto anim-fade-up px-4 sm:px-0"
-            style={{ animationDelay: "0.74s" }}
+            style={{ animationDelay: "0.75s" }}
           >
-            {/* Filled Burgundy Button */}
+            {/* Primary CTA: View Projects */}
             <Link
               href="/#projects"
-              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#590B20] text-white text-sm font-sans font-medium hover:bg-[#430717] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 shadow-sm ${FOCUS_RING}`}
+              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#FF7A00] text-[#080808] text-sm font-sans font-semibold hover:bg-[#FF8C1A] hover:shadow-[0_0_20px_rgba(255,122,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 shadow-sm ${FOCUS_RING}`}
             >
-              <span>View Selected Work</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <span>View Projects</span>
             </Link>
 
-            {/* Outlined Burgundy Button */}
+            {/* Secondary CTA: GitHub */}
+            <a
+              href={profile?.contact.github || "https://github.com/harishgummadi72"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl border border-[#262626] text-[#F5F5F5] bg-[#121212] hover:border-[#FF7A00]/60 hover:text-[#FF7A00] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer ${FOCUS_RING}`}
+            >
+              <span>GitHub</span>
+              <ExternalLink className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </a>
+
+            {/* Tertiary CTA: Contact Me */}
+            <Link
+              href="/#contact"
+              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl border border-[#262626] text-[#F5F5F5] bg-[#121212] hover:border-[#FF7A00]/60 hover:text-[#FF7A00] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer ${FOCUS_RING}`}
+            >
+              <Mail className="w-4 h-4 text-[#FF7A00]" />
+              <span>Contact</span>
+            </Link>
+
+            {/* AI Assistant Button */}
             <button
               onClick={() => openAssistant()}
-              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl border border-[#590B20] text-[#590B20] bg-transparent text-sm font-sans font-medium hover:bg-[#590B20]/5 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer ${FOCUS_RING}`}
+              className={`group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-3.5 rounded-xl border border-[#FF7A00]/40 text-[#FF7A00] bg-[#121212] text-sm font-sans font-medium hover:bg-[#FF7A00]/10 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer ${FOCUS_RING}`}
             >
-              <Sparkles className="w-4 h-4 text-[#AC9062] transition-transform duration-200 group-hover:rotate-12" />
-              <span>Ask Varun&apos;s AI</span>
+              <Sparkles className="w-4 h-4 text-[#FF7A00] transition-transform duration-200 group-hover:rotate-12" />
+              <span>Ask AI</span>
             </button>
           </div>
 
           {/* Wide Outlined Question Input */}
           <div
             className="w-full max-w-lg anim-fade-up"
-            style={{ animationDelay: "0.86s" }}
+            style={{ animationDelay: "0.85s" }}
           >
             <form
               onSubmit={handleQuerySubmit}
-              className={`relative flex items-center bg-white border border-[#D9CCB8] rounded-xl px-4 py-3.5 shadow-[0_4px_20px_rgba(89,11,32,0.04)] hover:border-[#AC9062] focus-within:border-[#590B20] focus-within:ring-2 focus-within:ring-[#590B20]/20 transition-all ${FOCUS_RING}`}
+              className={`relative flex items-center bg-[#151515] border border-[#262626] rounded-xl px-4 py-3.5 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-[#FF7A00]/50 focus-within:border-[#FF7A00] focus-within:ring-2 focus-within:ring-[#FF7A00]/20 transition-all ${FOCUS_RING}`}
             >
-              <Sparkles className="w-4 h-4 text-[#AC9062] mr-3 shrink-0" />
+              <Sparkles className="w-4 h-4 text-[#FF7A00] mr-3 shrink-0" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ask about my work, skills, or experience..."
-                className="w-full bg-transparent text-sm text-[#20060B] placeholder-[#68626B]/70 outline-none font-sans"
+                placeholder="Ask about Harish's education, skills, or projects..."
+                className="w-full bg-transparent text-sm text-[#F5F5F5] placeholder-[#818181] outline-none font-sans"
               />
               <button
                 type="submit"
-                className="p-1.5 text-[#590B20] hover:text-[#20060B] hover:scale-110 active:scale-95 transition-all rounded focus:outline-none cursor-pointer"
+                className="p-1.5 text-[#FF7A00] hover:text-[#FF8C1A] hover:scale-110 active:scale-95 transition-all rounded focus:outline-none cursor-pointer"
                 aria-label="Send query to AI Assistant"
               >
                 <Send className="w-4 h-4" />
@@ -172,14 +190,14 @@ export default function FullWidthHero({ profile }: FullWidthHeroProps) {
             </form>
 
             {/* Helper Prompt */}
-            <div className="mt-2.5 text-xs text-[#68626B] font-sans">
+            <div className="mt-2.5 text-xs text-[#818181] font-sans">
               Example:{" "}
               <button
                 type="button"
                 onClick={handleExampleClick}
-                className="text-[#590B20] underline underline-offset-2 hover:text-[#20060B] transition-colors cursor-pointer"
+                className="text-[#FF7A00] underline underline-offset-2 hover:text-[#FF8C1A] transition-colors cursor-pointer"
               >
-                “Tell me about the NEC Portal project.”
+                &ldquo;Tell me about Harish&apos;s education and technical skills&rdquo;
               </button>
             </div>
           </div>
@@ -188,14 +206,19 @@ export default function FullWidthHero({ profile }: FullWidthHeroProps) {
         {/* Bottom Scroll Prompt Indicator */}
         <div
           className="pt-2 pb-1 anim-fade-up"
-          style={{ animationDelay: "0.98s" }}
+          style={{ animationDelay: "0.95s" }}
         >
           <Link
-            href="/#projects"
-            className="group flex flex-col items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase font-sans text-[#68626B] hover:text-[#590B20] transition-colors"
+            href="/#about"
+            className="group inline-flex flex-col items-center gap-1.5 text-[#818181] hover:text-[#FF7A00] transition-colors"
+            aria-label="Scroll to About section"
           >
-            <span>Scroll to Projects</span>
-            <span className="w-4 h-[1px] bg-[#AC9062] group-hover:w-8 transition-all duration-300" />
+            <span className="text-[10px] tracking-[0.2em] uppercase font-sans">
+              Explore Portfolio
+            </span>
+            <div className="w-4 h-7 rounded-full border border-[#262626] flex items-start justify-center p-1 group-hover:border-[#FF7A00] transition-colors">
+              <span className="w-1 h-1.5 bg-[#FF7A00] rounded-full animate-bounce" />
+            </div>
           </Link>
         </div>
       </div>

@@ -30,7 +30,7 @@ export default function ArchitecturalArtwork({
             50% { opacity: 0.32; transform: scale(1.008); }
           }
         `}</style>
-        <g stroke="#AC9062" strokeWidth="0.85" opacity="0.45" strokeLinecap="round" strokeLinejoin="round">
+        <g stroke="#FF7A00" strokeWidth="0.85" opacity="0.3" strokeLinecap="round" strokeLinejoin="round">
           {/* Main perspective horizon & ground lines */}
           <line x1="20" y1="280" x2="680" y2="280" />
           <line x1="80" y1="310" x2="650" y2="310" strokeDasharray="3 3" />
@@ -84,11 +84,11 @@ export default function ArchitecturalArtwork({
           <line x1="422" y1="40" x2="422" y2="280" strokeWidth="0.5" strokeDasharray="2 2" />
 
           {/* Human scale silhouettes standing inside the portico */}
-          <circle cx="490" cy="245" r="3.5" fill="#AC9062" opacity="0.6" stroke="none" />
-          <path d="M 490 250 L 490 278 M 487 257 L 493 257 M 488 278 L 488 280 M 492 278 L 492 280" strokeWidth="1" opacity="0.6" />
+          <circle cx="490" cy="245" r="3.5" fill="#FF7A00" opacity="0.5" stroke="none" />
+          <path d="M 490 250 L 490 278 M 487 257 L 493 257 M 488 278 L 488 280 M 492 278 L 492 280" strokeWidth="1" opacity="0.5" />
 
-          <circle cx="515" cy="248" r="3" fill="#AC9062" opacity="0.5" stroke="none" />
-          <path d="M 515 252 L 515 278 M 512 258 L 518 258 M 513 278 L 513 280 M 517 278 L 517 280" strokeWidth="0.9" opacity="0.5" />
+          <circle cx="515" cy="248" r="3" fill="#FF7A00" opacity="0.4" stroke="none" />
+          <path d="M 515 252 L 515 278 M 512 258 L 518 258 M 513 278 L 513 280 M 517 278 L 517 280" strokeWidth="0.9" opacity="0.4" />
         </g>
       </svg>
     </div>

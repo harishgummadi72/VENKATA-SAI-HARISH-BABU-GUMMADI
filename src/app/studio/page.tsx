@@ -23,7 +23,6 @@ import {
   User,
   KeyRound,
   Lock,
-  Mail,
   X
 } from "lucide-react";
 import Monogram from "@/components/ui/Monogram";
@@ -139,7 +138,7 @@ export default function StudioPage() {
 
       if (res.ok && data.success) {
         setIsAuthenticated(true);
-        setAuthenticatedEmail("varunparlapalli2008@gmail.com");
+        setAuthenticatedEmail(data.user?.email || "gummadivenkatasaiharishbabu@gmail.com");
         setLoginPassword("");
         await fetchStudioData();
       } else {
@@ -234,9 +233,9 @@ export default function StudioPage() {
   // -------------------------------------------------------------
   if (sessionChecking) {
     return (
-      <div className="min-h-screen bg-[#F7F4EE] flex items-center justify-center p-6 text-sm text-[#68626B]">
+      <div className="min-h-screen bg-[#080808] flex items-center justify-center p-6 text-sm text-[#B7B7B7]">
         <div className="flex items-center gap-3">
-          <div className="w-4 h-4 border-2 border-[#590B20] border-t-transparent rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-[#FF7A00] border-t-transparent rounded-full animate-spin" />
           <span>Verifying studio credentials...</span>
         </div>
       </div>
@@ -248,19 +247,19 @@ export default function StudioPage() {
   // -------------------------------------------------------------
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#F7F4EE] flex items-center justify-center p-6 selection:bg-[#590B20] selection:text-white">
-        <div className="max-w-md w-full bg-white rounded-2xl border border-[#D9CCB8] p-8 shadow-[0_16px_40px_rgba(89,11,32,0.06)] font-sans">
+      <div className="min-h-screen bg-[#080808] flex items-center justify-center p-6 selection:bg-[#FF7A00] selection:text-black">
+        <div className="max-w-md w-full bg-[#151515] rounded-2xl border border-[#262626] p-8 shadow-[0_16px_40px_rgba(89,11,32,0.06)] font-sans">
           <div className="flex items-center gap-3 mb-6">
             <Monogram className="w-10 h-11" />
             <div>
-              <h1 className="font-display text-xl text-[#20060B]">Royal Atelier Studio</h1>
-              <span className="text-xs text-[#68626B]">Secure Owner-Only CMS</span>
+              <h1 className="font-display text-xl text-[#F5F5F5]">Harish Babu Studio</h1>
+              <span className="text-xs text-[#B7B7B7]">Secure Owner-Only CMS</span>
             </div>
           </div>
 
-          <div className="p-4 bg-[#FAF8F3] rounded-xl border border-[#D9CCB8] mb-6 text-xs text-[#68626B] leading-relaxed">
-            <div className="flex items-center gap-1.5 text-[#590B20] font-semibold mb-1">
-              <ShieldAlert className="w-4 h-4 text-[#AC9062]" />
+          <div className="p-4 bg-[#121212] rounded-xl border border-[#262626] mb-6 text-xs text-[#B7B7B7] leading-relaxed">
+            <div className="flex items-center gap-1.5 text-[#FF7A00] font-semibold mb-1">
+              <ShieldAlert className="w-4 h-4 text-[#FF9D33]" />
               <span>Owner Authentication Gate</span>
             </div>
             Sign in with your owner credentials to manage portfolio projects, achievements, credentials, skills, experience, and identity.
@@ -275,8 +274,8 @@ export default function StudioPage() {
 
           <form onSubmit={handleLoginSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-medium text-[#20060B] mb-1.5 flex items-center gap-1.5">
-                <Lock className="w-3.5 h-3.5 text-[#AC9062]" />
+              <label className="block text-xs font-medium text-[#F5F5F5] mb-1.5 flex items-center gap-1.5">
+                <Lock className="w-3.5 h-3.5 text-[#FF9D33]" />
                 <span>Studio Master Password</span>
               </label>
               <input
@@ -286,28 +285,28 @@ export default function StudioPage() {
                 placeholder="Enter STUDIO_ADMIN_PASSWORD"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9CCB8] bg-[#FAF8F3] text-sm text-[#20060B] placeholder-[#68626B]/50 focus:outline-none focus:ring-2 focus:ring-[#590B20]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#262626] bg-[#121212] text-sm text-[#F5F5F5] placeholder-[#B7B7B7]/50 focus:outline-none focus:ring-2 focus:ring-[#FF7A00]"
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmittingLogin}
-              className="w-full py-3 px-4 rounded-xl bg-[#590B20] text-white text-xs font-semibold hover:bg-[#430717] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm disabled:opacity-50"
+              className="w-full py-3 px-4 rounded-xl bg-[#FF7A00] text-black font-semibold text-xs font-semibold hover:bg-[#FF8C1A] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm disabled:opacity-50"
             >
               {isSubmittingLogin ? (
                 <span>Authenticating...</span>
               ) : (
                 <>
-                  <KeyRound className="w-4 h-4 text-[#AC9062]" />
+                  <KeyRound className="w-4 h-4 text-[#FF9D33]" />
                   <span>Sign In to Studio</span>
                 </>
               )}
             </button>
           </form>
 
-          <div className="mt-6 pt-4 border-t border-[#E8DFD1] text-center">
-            <Link href="/" className="text-xs text-[#590B20] hover:underline inline-flex items-center gap-1">
+          <div className="mt-6 pt-4 border-t border-[#262626] text-center">
+            <Link href="/" className="text-xs text-[#FF7A00] hover:underline inline-flex items-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Return to Public Portfolio</span>
             </Link>
@@ -322,9 +321,9 @@ export default function StudioPage() {
   // -------------------------------------------------------------
   if (!content) {
     return (
-      <div className="min-h-screen bg-[#F7F4EE] flex items-center justify-center p-6 text-sm text-[#68626B]">
+      <div className="min-h-screen bg-[#080808] flex items-center justify-center p-6 text-sm text-[#B7B7B7]">
         <div className="flex items-center gap-3">
-          <div className="w-4 h-4 border-2 border-[#590B20] border-t-transparent rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-[#FF7A00] border-t-transparent rounded-full animate-spin" />
           <span>Loading portfolio content store...</span>
         </div>
       </div>
@@ -335,17 +334,17 @@ export default function StudioPage() {
   // RENDER: Authenticated Studio CMS
   // -------------------------------------------------------------
   return (
-    <div className="min-h-screen bg-[#F7F4EE] flex flex-col font-sans selection:bg-[#590B20] selection:text-white">
+    <div className="min-h-screen bg-[#080808] flex flex-col font-sans selection:bg-[#FF7A00] selection:text-black">
       {/* Studio Header */}
-      <header className="w-full border-b border-[#D9CCB8] bg-white sticky top-0 z-30 px-6 lg:px-12 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <header className="w-full border-b border-[#262626] bg-[#151515] sticky top-0 z-30 px-6 lg:px-12 py-3.5 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <Link href="/">
             <Monogram className="w-8 h-9" />
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-display text-lg text-[#20060B] font-medium">Royal Atelier Studio</span>
-              <span className="px-2 py-0.5 rounded text-[10px] bg-[#590B20]/10 text-[#590B20] font-semibold">
+              <span className="font-display text-lg text-[#F5F5F5] font-medium">Harish Babu Studio</span>
+              <span className="px-2 py-0.5 rounded text-[10px] bg-[#FF7A00]/10 text-[#FF7A00] font-semibold">
                 Owner Mode
               </span>
               {hasUnsavedChanges && (
@@ -355,7 +354,7 @@ export default function StudioPage() {
                 </span>
               )}
             </div>
-            <span className="text-[11px] text-[#68626B]">{authenticatedEmail}</span>
+            <span className="text-[11px] text-[#B7B7B7]">{authenticatedEmail}</span>
           </div>
         </div>
 
@@ -363,7 +362,7 @@ export default function StudioPage() {
           <Link
             href="/"
             target="_blank"
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#D9CCB8] text-xs text-[#68626B] hover:text-[#20060B] hover:border-[#AC9062] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#262626] text-xs text-[#B7B7B7] hover:text-[#F5F5F5] hover:border-[#FF9D33] transition-colors"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>Public Site</span>
@@ -374,18 +373,18 @@ export default function StudioPage() {
             disabled={saveStatus === "saving"}
             className={`inline-flex items-center gap-2 px-5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer shadow-sm disabled:opacity-50 ${
               hasUnsavedChanges
-                ? "bg-[#590B20] text-white hover:bg-[#430717] ring-2 ring-[#AC9062]"
-                : "bg-[#20060B] text-white hover:bg-[#590B20]"
+                ? "bg-[#FF7A00] text-black font-semibold hover:bg-[#FF8C1A] ring-2 ring-[#FF9D33]"
+                : "bg-[#F5F5F5] text-white hover:bg-[#FF7A00]"
             }`}
           >
-            <Save className="w-3.5 h-3.5 text-[#AC9062]" />
+            <Save className="w-3.5 h-3.5 text-[#FF9D33]" />
             <span>{saveStatus === "saving" ? "Publishing..." : hasUnsavedChanges ? "Publish Updates*" : "Publish Updates"}</span>
           </button>
 
           <button
             onClick={handleLogout}
             title="Log out of Studio"
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#D9CCB8] text-xs text-red-700 hover:bg-red-50 hover:border-red-300 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#262626] text-xs text-red-700 hover:bg-red-50 hover:border-red-300 transition-colors cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -415,7 +414,7 @@ export default function StudioPage() {
       )}
 
       {/* Navigation Tabs */}
-      <div className="border-b border-[#D9CCB8] bg-[#FAF8F3] px-6 lg:px-12 flex gap-6 overflow-x-auto text-xs font-medium">
+      <div className="border-b border-[#262626] bg-[#121212] px-6 lg:px-12 flex gap-6 overflow-x-auto text-xs font-medium">
         {[
           { id: "projects", label: "Projects", icon: Layers },
           { id: "achievements", label: "Achievements & Credentials", icon: Trophy },
@@ -432,8 +431,8 @@ export default function StudioPage() {
               onClick={() => setActiveTab(tab.id as TabKey)}
               className={`py-3.5 border-b-2 flex items-center gap-2 transition-all cursor-pointer whitespace-nowrap ${
                 isActive
-                  ? "border-[#590B20] text-[#590B20] font-semibold"
-                  : "border-transparent text-[#68626B] hover:text-[#20060B]"
+                  ? "border-[#FF7A00] text-[#FF7A00] font-semibold"
+                  : "border-transparent text-[#B7B7B7] hover:text-[#F5F5F5]"
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -452,8 +451,8 @@ export default function StudioPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl text-[#20060B]">Manage Projects</h2>
-                <p className="text-xs text-[#68626B]">
+                <h2 className="font-display text-2xl text-[#F5F5F5]">Manage Projects</h2>
+                <p className="text-xs text-[#B7B7B7]">
                   Add, edit, reorder, and configure live & repository links for project case studies.
                 </p>
               </div>
@@ -486,7 +485,7 @@ export default function StudioPage() {
                   };
                   setContent({ ...content, projects: [...content.projects, newProj] });
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add New Project</span>
@@ -497,12 +496,12 @@ export default function StudioPage() {
               {content.projects.map((proj, index) => (
                 <div
                   key={proj.id}
-                  className="p-6 bg-white rounded-xl border border-[#D9CCB8] shadow-xs space-y-4"
+                  className="p-6 bg-[#151515] rounded-xl border border-[#262626] shadow-xs space-y-4"
                 >
                   {/* Card Header & Controls */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#E8DFD1]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#262626]">
                     <div className="flex items-center gap-3">
-                      <span className="font-display text-lg text-[#20060B] font-medium">
+                      <span className="font-display text-lg text-[#F5F5F5] font-medium">
                         {proj.title || "Untitled Project"}
                       </span>
                       <span
@@ -515,7 +514,7 @@ export default function StudioPage() {
                         {proj.published ? "Published" : "Draft"}
                       </span>
                       {proj.featured && (
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#AC9062]/20 text-[#20060B] font-medium">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#FF9D33]/20 text-[#F5F5F5] font-medium">
                           Featured
                         </span>
                       )}
@@ -534,7 +533,7 @@ export default function StudioPage() {
                           newProjects.forEach((p, idx) => (p.order = idx + 1));
                           setContent({ ...content, projects: newProjects });
                         }}
-                        className="p-1.5 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                        className="p-1.5 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         title="Move Up"
                       >
                         <ChevronUp className="w-3.5 h-3.5" />
@@ -550,7 +549,7 @@ export default function StudioPage() {
                           newProjects.forEach((p, idx) => (p.order = idx + 1));
                           setContent({ ...content, projects: newProjects });
                         }}
-                        className="p-1.5 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                        className="p-1.5 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         title="Move Down"
                       >
                         <ChevronDown className="w-3.5 h-3.5" />
@@ -587,7 +586,7 @@ export default function StudioPage() {
                   {/* Fields Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Project Title</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Project Title</label>
                       <input
                         type="text"
                         value={proj.title}
@@ -597,12 +596,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Slug (URL identifier)</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Slug (URL identifier)</label>
                       <input
                         type="text"
                         value={proj.slug}
@@ -612,12 +611,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Category</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Category</label>
                       <select
                         value={proj.category}
                         onChange={(e) => {
@@ -626,7 +625,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       >
                         <option value="Frontend & UI/UX">Frontend & UI/UX</option>
                         <option value="Systems & AI">Systems & AI</option>
@@ -636,7 +635,7 @@ export default function StudioPage() {
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Role</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Role</label>
                       <input
                         type="text"
                         value={proj.role}
@@ -646,12 +645,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Status</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Status</label>
                       <select
                         value={proj.status}
                         onChange={(e) => {
@@ -660,7 +659,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       >
                         <option value="Active">Active</option>
                         <option value="Concept">Concept</option>
@@ -680,14 +679,14 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, projects: updated });
                           }}
-                          className="rounded border-[#D9CCB8] text-[#590B20] focus:ring-[#590B20]"
+                          className="rounded border-[#262626] text-[#FF7A00] focus:ring-[#FF7A00]"
                         />
-                        <span className="text-[#20060B] font-medium">Feature on Homepage</span>
+                        <span className="text-[#F5F5F5] font-medium">Feature on Homepage</span>
                       </label>
                     </div>
 
                     <div className="md:col-span-2 lg:col-span-3">
-                      <label className="block text-[#68626B] font-medium mb-1">Tagline</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Tagline</label>
                       <input
                         type="text"
                         value={proj.tagline}
@@ -697,14 +696,14 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     {/* Web Links */}
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1 flex items-center gap-1">
-                        <ExternalLink className="w-3 h-3 text-[#AC9062]" />
+                      <label className="block text-[#B7B7B7] font-medium mb-1 flex items-center gap-1">
+                        <ExternalLink className="w-3 h-3 text-[#FF9D33]" />
                         <span>Live Website URL</span>
                       </label>
                       <input
@@ -717,13 +716,13 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1 flex items-center gap-1">
-                        <ExternalLink className="w-3 h-3 text-[#AC9062]" />
+                      <label className="block text-[#B7B7B7] font-medium mb-1 flex items-center gap-1">
+                        <ExternalLink className="w-3 h-3 text-[#FF9D33]" />
                         <span>GitHub Repository URL</span>
                       </label>
                       <input
@@ -736,12 +735,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#68626B] font-medium mb-1">Technologies (comma-separated)</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Technologies (comma-separated)</label>
                       <input
                         type="text"
                         value={proj.technologies.join(", ")}
@@ -752,12 +751,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div className="md:col-span-2 lg:col-span-3">
-                      <label className="block text-[#68626B] font-medium mb-1">Overview</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Overview</label>
                       <textarea
                         rows={2}
                         value={proj.overview}
@@ -767,12 +766,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
 
                     <div className="md:col-span-2 lg:col-span-3">
-                      <label className="block text-[#68626B] font-medium mb-1">Features Built (one per line)</label>
+                      <label className="block text-[#B7B7B7] font-medium mb-1">Features Built (one per line)</label>
                       <textarea
                         rows={3}
                         value={proj.featuresBuilt.join("\n")}
@@ -783,7 +782,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, projects: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                       />
                     </div>
                   </div>
@@ -802,8 +801,8 @@ export default function StudioPage() {
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="font-display text-2xl text-[#20060B]">Hackathons & Competitions</h2>
-                  <p className="text-xs text-[#68626B]">
+                  <h2 className="font-display text-2xl text-[#F5F5F5]">Hackathons & Competitions</h2>
+                  <p className="text-xs text-[#B7B7B7]">
                     Document verified hackathon placements, awards, and team distinctions.
                   </p>
                 </div>
@@ -826,7 +825,7 @@ export default function StudioPage() {
                     };
                     setContent({ ...content, achievements: [...content.achievements, newAch] });
                   }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Achievement</span>
@@ -835,10 +834,10 @@ export default function StudioPage() {
 
               <div className="space-y-4">
                 {content.achievements.map((ach, idx) => (
-                  <div key={ach.id} className="p-6 bg-white rounded-xl border border-[#D9CCB8] space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#E8DFD1]">
+                  <div key={ach.id} className="p-6 bg-[#151515] rounded-xl border border-[#262626] space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#262626]">
                       <div className="flex items-center gap-3">
-                        <span className="font-display text-base text-[#20060B] font-medium">{ach.title}</span>
+                        <span className="font-display text-base text-[#F5F5F5] font-medium">{ach.title}</span>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${ach.published ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"}`}>
                           {ach.published ? "Published" : "Draft"}
                         </span>
@@ -855,7 +854,7 @@ export default function StudioPage() {
                             copy.forEach((a, i) => (a.order = i + 1));
                             setContent({ ...content, achievements: copy });
                           }}
-                          className="p-1 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                          className="p-1 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         >
                           <ChevronUp className="w-3.5 h-3.5" />
                         </button>
@@ -870,7 +869,7 @@ export default function StudioPage() {
                             copy.forEach((a, i) => (a.order = i + 1));
                             setContent({ ...content, achievements: copy });
                           }}
-                          className="p-1 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                          className="p-1 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         >
                           <ChevronDown className="w-3.5 h-3.5" />
                         </button>
@@ -898,7 +897,7 @@ export default function StudioPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                       <div>
-                        <label className="block text-[#68626B] mb-1">Title</label>
+                        <label className="block text-[#B7B7B7] mb-1">Title</label>
                         <input
                           type="text"
                           value={ach.title}
@@ -908,11 +907,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Event</label>
+                        <label className="block text-[#B7B7B7] mb-1">Event</label>
                         <input
                           type="text"
                           value={ach.event}
@@ -922,11 +921,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Result</label>
+                        <label className="block text-[#B7B7B7] mb-1">Result</label>
                         <input
                           type="text"
                           value={ach.result}
@@ -936,11 +935,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Year</label>
+                        <label className="block text-[#B7B7B7] mb-1">Year</label>
                         <input
                           type="text"
                           value={ach.year}
@@ -950,11 +949,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Evidence / Proof URL</label>
+                        <label className="block text-[#B7B7B7] mb-1">Evidence / Proof URL</label>
                         <input
                           type="url"
                           placeholder="https://..."
@@ -965,11 +964,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Format</label>
+                        <label className="block text-[#B7B7B7] mb-1">Format</label>
                         <select
                           value={ach.teamOrIndividual}
                           onChange={(e) => {
@@ -978,14 +977,14 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         >
                           <option value="Individual">Individual</option>
                           <option value="Team">Team</option>
                         </select>
                       </div>
                       <div className="md:col-span-2 lg:col-span-3">
-                        <label className="block text-[#68626B] mb-1">Summary Description</label>
+                        <label className="block text-[#B7B7B7] mb-1">Summary Description</label>
                         <textarea
                           rows={2}
                           value={ach.description}
@@ -995,7 +994,7 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, achievements: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                     </div>
@@ -1005,11 +1004,11 @@ export default function StudioPage() {
             </div>
 
             {/* Section B: Credentials */}
-            <div className="space-y-6 pt-6 border-t border-[#D9CCB8]">
+            <div className="space-y-6 pt-6 border-t border-[#262626]">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="font-display text-2xl text-[#20060B]">Learning Credentials & Certificates</h2>
-                  <p className="text-xs text-[#68626B]">
+                  <h2 className="font-display text-2xl text-[#F5F5F5]">Learning Credentials & Certificates</h2>
+                  <p className="text-xs text-[#B7B7B7]">
                     Configure course badges, learning journeys, and certification links.
                   </p>
                 </div>
@@ -1033,7 +1032,7 @@ export default function StudioPage() {
                     };
                     setContent({ ...content, credentials: [...content.credentials, newCred] });
                   }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Credential</span>
@@ -1041,11 +1040,16 @@ export default function StudioPage() {
               </div>
 
               <div className="space-y-4">
-                {content.credentials.map((cred, idx) => (
-                  <div key={cred.id} className="p-6 bg-white rounded-xl border border-[#D9CCB8] space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#E8DFD1]">
+                {(content.credentials || []).length === 0 ? (
+                  <div className="p-8 rounded-xl border border-dashed border-[#262626] bg-[#121212] text-center">
+                    <p className="text-xs text-[#B7B7B7]">No credentials or certificates added yet. Click &apos;Add Credential&apos; to add future verified certificates.</p>
+                  </div>
+                ) : (
+                  content.credentials.map((cred, idx) => (
+                  <div key={cred.id} className="p-6 bg-[#151515] rounded-xl border border-[#262626] space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#262626]">
                       <div className="flex items-center gap-3">
-                        <span className="font-display text-base text-[#20060B] font-medium">{cred.title}</span>
+                        <span className="font-display text-base text-[#F5F5F5] font-medium">{cred.title}</span>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${cred.published ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"}`}>
                           {cred.published ? "Published" : "Draft"}
                         </span>
@@ -1067,7 +1071,7 @@ export default function StudioPage() {
                             copy.forEach((c, i) => (c.order = i + 1));
                             setContent({ ...content, credentials: copy });
                           }}
-                          className="p-1 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                          className="p-1 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         >
                           <ChevronUp className="w-3.5 h-3.5" />
                         </button>
@@ -1082,7 +1086,7 @@ export default function StudioPage() {
                             copy.forEach((c, i) => (c.order = i + 1));
                             setContent({ ...content, credentials: copy });
                           }}
-                          className="p-1 border border-[#D9CCB8] rounded text-[#68626B] hover:text-[#20060B] disabled:opacity-30 cursor-pointer"
+                          className="p-1 border border-[#262626] rounded text-[#B7B7B7] hover:text-[#F5F5F5] disabled:opacity-30 cursor-pointer"
                         >
                           <ChevronDown className="w-3.5 h-3.5" />
                         </button>
@@ -1110,7 +1114,7 @@ export default function StudioPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                       <div>
-                        <label className="block text-[#68626B] mb-1">Title</label>
+                        <label className="block text-[#B7B7B7] mb-1">Title</label>
                         <input
                           type="text"
                           value={cred.title}
@@ -1120,11 +1124,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Issuer</label>
+                        <label className="block text-[#B7B7B7] mb-1">Issuer</label>
                         <input
                           type="text"
                           value={cred.issuer}
@@ -1134,11 +1138,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Date</label>
+                        <label className="block text-[#B7B7B7] mb-1">Date</label>
                         <input
                           type="text"
                           value={cred.date || ""}
@@ -1148,12 +1152,12 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[#68626B] mb-1">Verification / Badge URL</label>
+                        <label className="block text-[#B7B7B7] mb-1">Verification / Badge URL</label>
                         <input
                           type="url"
                           placeholder="https://credly.com/..."
@@ -1164,12 +1168,12 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[#68626B] mb-1">LinkedIn Post URL</label>
+                        <label className="block text-[#B7B7B7] mb-1">LinkedIn Post URL</label>
                         <input
                           type="url"
                           placeholder="https://linkedin.com/posts/..."
@@ -1180,12 +1184,12 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[#68626B] mb-1">Evidence / Certificate Image Link</label>
+                        <label className="block text-[#B7B7B7] mb-1">Evidence / Certificate Image Link</label>
                         <input
                           type="text"
                           placeholder="/assets/credentials/... or https://"
@@ -1196,12 +1200,12 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
 
                       <div className="md:col-span-2 lg:col-span-3">
-                        <label className="block text-[#68626B] mb-1">Summary</label>
+                        <label className="block text-[#B7B7B7] mb-1">Summary</label>
                         <textarea
                           rows={2}
                           value={cred.summary}
@@ -1211,12 +1215,13 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, credentials: updated });
                           }}
-                          className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                     </div>
                   </div>
-                ))}
+                ))
+              )}
               </div>
             </div>
           </div>
@@ -1229,8 +1234,8 @@ export default function StudioPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl text-[#20060B]">Technical Skills</h2>
-                <p className="text-xs text-[#68626B]">
+                <h2 className="font-display text-2xl text-[#F5F5F5]">Technical Skills</h2>
+                <p className="text-xs text-[#B7B7B7]">
                   Organize competencies, categorizations, proficiency levels, and linked project tags.
                 </p>
               </div>
@@ -1245,7 +1250,7 @@ export default function StudioPage() {
                   };
                   setContent({ ...content, skills: [...content.skills, newSkill] });
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Skill</span>
@@ -1254,9 +1259,9 @@ export default function StudioPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {content.skills.map((skill) => (
-                <div key={skill.id} className="p-4 bg-white rounded-xl border border-[#D9CCB8] space-y-3">
+                <div key={skill.id} className="p-4 bg-[#151515] rounded-xl border border-[#262626] space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-sm text-[#20060B]">{skill.name || "Unnamed"}</span>
+                    <span className="font-semibold text-sm text-[#F5F5F5]">{skill.name || "Unnamed"}</span>
                     <button
                       onClick={() => setDeleteTarget({ type: "skill", id: skill.id, name: skill.name })}
                       className="p-1 text-red-600 hover:bg-red-50 rounded cursor-pointer"
@@ -1266,7 +1271,7 @@ export default function StudioPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div>
-                      <label className="block text-[#68626B] mb-1">Skill Name</label>
+                      <label className="block text-[#B7B7B7] mb-1">Skill Name</label>
                       <input
                         type="text"
                         value={skill.name}
@@ -1276,11 +1281,11 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, skills: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Category</label>
+                      <label className="block text-[#B7B7B7] mb-1">Category</label>
                       <select
                         value={skill.category}
                         onChange={(e) => {
@@ -1289,7 +1294,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, skills: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       >
                         <option value="Development">Development</option>
                         <option value="Design & Prototyping">Design & Prototyping</option>
@@ -1298,7 +1303,7 @@ export default function StudioPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Proficiency</label>
+                      <label className="block text-[#B7B7B7] mb-1">Proficiency</label>
                       <select
                         value={skill.proficiency}
                         onChange={(e) => {
@@ -1307,7 +1312,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, skills: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       >
                         <option value="Core">Core</option>
                         <option value="Proficient">Proficient</option>
@@ -1315,10 +1320,10 @@ export default function StudioPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Linked Projects (slugs)</label>
+                      <label className="block text-[#B7B7B7] mb-1">Linked Projects (slugs)</label>
                       <input
                         type="text"
-                        placeholder="nec-portal, aegis-legacy"
+                        placeholder="project-slug-1, project-slug-2"
                         value={skill.relatedProjectSlugs.join(", ")}
                         onChange={(e) => {
                           const slugs = e.target.value.split(",").map((s) => s.trim()).filter(Boolean);
@@ -1327,7 +1332,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, skills: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                   </div>
@@ -1344,8 +1349,8 @@ export default function StudioPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl text-[#20060B]">Leadership & Experience</h2>
-                <p className="text-xs text-[#68626B]">
+                <h2 className="font-display text-2xl text-[#F5F5F5]">Leadership & Experience</h2>
+                <p className="text-xs text-[#B7B7B7]">
                   Manage executive positions, startup leadership, operational roles, and verified responsibilities.
                 </p>
               </div>
@@ -1353,21 +1358,20 @@ export default function StudioPage() {
                 onClick={() => {
                   const newExp: Experience = {
                     id: `exp-${Date.now()}`,
-                    role: "Chief Operating Officer (COO)",
-                    company: "CodeXa Agency",
-                    cooDistinction: "Operations & Frontend Delivery",
+                    role: "Software Developer",
+                    company: "Organization Name",
                     period: "2025–Present",
                     isCurrent: true,
-                    summary: "Leading operational execution and digital interface delivery.",
+                    summary: "Description of software development or engineering responsibilities.",
                     contributions: [
-                      "Led cross-functional client delivery sprints.",
-                      "Architected accessible design system foundations."
+                      "Contributed to software development and engineering solutions.",
+                      "Collaborated on technical projects and implementations."
                     ],
                     published: true
                   };
                   setContent({ ...content, experience: [...content.experience, newExp] });
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Experience Entry</span>
@@ -1375,18 +1379,23 @@ export default function StudioPage() {
             </div>
 
             <div className="space-y-6">
-              {content.experience.map((exp) => (
-                <div key={exp.id} className="p-6 bg-white rounded-xl border border-[#D9CCB8] space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-[#E8DFD1]">
+              {(content.experience || []).length === 0 ? (
+                <div className="p-8 rounded-xl border border-dashed border-[#262626] bg-[#121212] text-center">
+                  <p className="text-xs text-[#B7B7B7]">No professional experience entries added yet. Click &apos;Add Experience Entry&apos; to document future roles or internships.</p>
+                </div>
+              ) : (
+                content.experience.map((exp) => (
+                <div key={exp.id} className="p-6 bg-[#151515] rounded-xl border border-[#262626] space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#262626]">
                     <div className="flex items-center gap-3">
-                      <span className="font-display text-base text-[#20060B] font-medium">
+                      <span className="font-display text-base text-[#F5F5F5] font-medium">
                         {exp.role} at {exp.company}
                       </span>
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${exp.published ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"}`}>
                         {exp.published ? "Published" : "Draft"}
                       </span>
                       {exp.isCurrent && (
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#AC9062]/20 text-[#20060B] font-medium">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#FF9D33]/20 text-[#F5F5F5] font-medium">
                           Current Role
                         </span>
                       )}
@@ -1416,7 +1425,7 @@ export default function StudioPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="block text-[#68626B] mb-1">Role Title</label>
+                      <label className="block text-[#B7B7B7] mb-1">Role Title</label>
                       <input
                         type="text"
                         value={exp.role}
@@ -1426,11 +1435,11 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Company / Organization</label>
+                      <label className="block text-[#B7B7B7] mb-1">Company / Organization</label>
                       <input
                         type="text"
                         value={exp.company}
@@ -1440,11 +1449,11 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Distinction / Focus</label>
+                      <label className="block text-[#B7B7B7] mb-1">Distinction / Focus</label>
                       <input
                         type="text"
                         value={exp.cooDistinction}
@@ -1454,11 +1463,11 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Period (e.g. 2025–Present)</label>
+                      <label className="block text-[#B7B7B7] mb-1">Period (e.g. 2025–Present)</label>
                       <input
                         type="text"
                         value={exp.period}
@@ -1468,7 +1477,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div className="flex items-center gap-2 pt-5">
@@ -1482,13 +1491,13 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, experience: updated });
                           }}
-                          className="rounded border-[#D9CCB8] text-[#590B20]"
+                          className="rounded border-[#262626] text-[#FF7A00]"
                         />
-                        <span className="font-medium text-[#20060B]">Currently Active</span>
+                        <span className="font-medium text-[#F5F5F5]">Currently Active</span>
                       </label>
                     </div>
                     <div className="md:col-span-2 lg:col-span-3">
-                      <label className="block text-[#68626B] mb-1">Role Summary</label>
+                      <label className="block text-[#B7B7B7] mb-1">Role Summary</label>
                       <input
                         type="text"
                         value={exp.summary}
@@ -1498,11 +1507,11 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div className="md:col-span-2 lg:col-span-3">
-                      <label className="block text-[#68626B] mb-1">Key Responsibilities & Contributions (one per line)</label>
+                      <label className="block text-[#B7B7B7] mb-1">Key Responsibilities & Contributions (one per line)</label>
                       <textarea
                         rows={3}
                         value={exp.contributions.join("\n")}
@@ -1513,12 +1522,13 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, experience: updated });
                         }}
-                        className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            )}
             </div>
           </div>
         )}
@@ -1530,8 +1540,8 @@ export default function StudioPage() {
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h2 className="font-display text-2xl text-[#20060B]">Currently Learning</h2>
-                <p className="text-xs text-[#68626B]">
+                <h2 className="font-display text-2xl text-[#F5F5F5]">Currently Learning</h2>
+                <p className="text-xs text-[#B7B7B7]">
                   Highlight active exploration areas, modern software frameworks, and technical goals.
                 </p>
               </div>
@@ -1547,7 +1557,7 @@ export default function StudioPage() {
                   };
                   setContent({ ...content, currentlyLearning: [...content.currentlyLearning, newItem] });
                 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#590B20] text-white text-xs font-medium hover:bg-[#430717] cursor-pointer self-start sm:self-auto shadow-xs"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#FF7A00] text-black font-semibold text-xs font-medium hover:bg-[#FF8C1A] cursor-pointer self-start sm:self-auto shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Learning Focus</span>
@@ -1556,10 +1566,10 @@ export default function StudioPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {content.currentlyLearning.map((item) => (
-                <div key={item.id} className="p-4 bg-white rounded-xl border border-[#D9CCB8] space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-[#E8DFD1]">
+                <div key={item.id} className="p-4 bg-[#151515] rounded-xl border border-[#262626] space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#262626]">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-sm text-[#20060B]">{item.topic || "Untitled"}</span>
+                      <span className="font-semibold text-sm text-[#F5F5F5]">{item.topic || "Untitled"}</span>
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${item.published ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"}`}>
                         {item.published ? "Published" : "Draft"}
                       </span>
@@ -1589,7 +1599,7 @@ export default function StudioPage() {
 
                   <div className="space-y-3 text-xs">
                     <div>
-                      <label className="block text-[#68626B] mb-1">Topic</label>
+                      <label className="block text-[#B7B7B7] mb-1">Topic</label>
                       <input
                         type="text"
                         value={item.topic}
@@ -1599,12 +1609,12 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, currentlyLearning: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[#68626B] mb-1">Area / Domain</label>
+                        <label className="block text-[#B7B7B7] mb-1">Area / Domain</label>
                         <input
                           type="text"
                           value={item.area}
@@ -1614,11 +1624,11 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, currentlyLearning: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[#68626B] mb-1">Date / Status</label>
+                        <label className="block text-[#B7B7B7] mb-1">Date / Status</label>
                         <input
                           type="text"
                           value={item.dated}
@@ -1628,12 +1638,12 @@ export default function StudioPage() {
                             );
                             setContent({ ...content, currentlyLearning: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                          className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                         />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[#68626B] mb-1">Notes</label>
+                      <label className="block text-[#B7B7B7] mb-1">Notes</label>
                       <textarea
                         rows={2}
                         value={item.notes}
@@ -1643,7 +1653,7 @@ export default function StudioPage() {
                           );
                           setContent({ ...content, currentlyLearning: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                        className="w-full px-2.5 py-1.5 rounded border border-[#262626] bg-[#121212]"
                       />
                     </div>
                   </div>
@@ -1659,16 +1669,16 @@ export default function StudioPage() {
         {activeTab === "profile" && (
           <div className="space-y-6">
             <div>
-              <h2 className="font-display text-2xl text-[#20060B]">Profile & Identity</h2>
-              <p className="text-xs text-[#68626B]">
+              <h2 className="font-display text-2xl text-[#F5F5F5]">Profile & Identity</h2>
+              <p className="text-xs text-[#B7B7B7]">
                 Configure candidate name, introductory copy, biography, academic credentials, and approved contact links.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-xl border border-[#D9CCB8] space-y-6 text-xs">
+            <div className="p-6 bg-[#151515] rounded-xl border border-[#262626] space-y-6 text-xs">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[#68626B] font-medium mb-1">Full Legal / Display Name</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Full Legal / Display Name</label>
                   <input
                     type="text"
                     value={content.profile.name}
@@ -1678,11 +1688,11 @@ export default function StudioPage() {
                         profile: { ...content.profile, name: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#68626B] font-medium mb-1">Preferred Name</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Preferred Name</label>
                   <input
                     type="text"
                     value={content.profile.preferredName}
@@ -1692,11 +1702,11 @@ export default function StudioPage() {
                         profile: { ...content.profile, preferredName: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#68626B] font-medium mb-1">Primary Role Headline</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Primary Role Headline</label>
                   <input
                     type="text"
                     value={content.profile.primaryRole}
@@ -1706,11 +1716,11 @@ export default function StudioPage() {
                         profile: { ...content.profile, primaryRole: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#68626B] font-medium mb-1">Supporting Role</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Supporting Role</label>
                   <input
                     type="text"
                     value={content.profile.supportingRole}
@@ -1720,11 +1730,11 @@ export default function StudioPage() {
                         profile: { ...content.profile, supportingRole: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-[#68626B] font-medium mb-1">Location</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Location</label>
                   <input
                     type="text"
                     value={content.profile.location}
@@ -1734,11 +1744,11 @@ export default function StudioPage() {
                         profile: { ...content.profile, location: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-[#68626B] font-medium mb-1">Editorial Introduction</label>
+                  <label className="block text-[#B7B7B7] font-medium mb-1">Editorial Introduction</label>
                   <textarea
                     rows={2}
                     value={content.profile.introduction}
@@ -1748,14 +1758,14 @@ export default function StudioPage() {
                         profile: { ...content.profile, introduction: e.target.value }
                       })
                     }
-                    className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                    className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                   />
                 </div>
               </div>
 
               {/* Bio Paragraphs */}
-              <div className="pt-4 border-t border-[#E8DFD1]">
-                <label className="block text-[#68626B] font-medium mb-1">About Biography Paragraphs (one per line)</label>
+              <div className="pt-4 border-t border-[#262626]">
+                <label className="block text-[#B7B7B7] font-medium mb-1">About Biography Paragraphs (one per line)</label>
                 <textarea
                   rows={4}
                   value={content.profile.aboutBio.join("\n\n")}
@@ -1766,16 +1776,16 @@ export default function StudioPage() {
                       profile: { ...content.profile, aboutBio: paragraphs }
                     });
                   }}
-                  className="w-full px-3 py-2 rounded border border-[#D9CCB8] bg-[#FAF8F3] text-[#20060B]"
+                  className="w-full px-3 py-2 rounded border border-[#262626] bg-[#121212] text-[#F5F5F5]"
                 />
               </div>
 
               {/* Education */}
-              <div className="pt-4 border-t border-[#E8DFD1] space-y-4">
-                <span className="font-semibold text-sm text-[#20060B] block">Academic Education</span>
+              <div className="pt-4 border-t border-[#262626] space-y-4">
+                <span className="font-semibold text-sm text-[#F5F5F5] block">Academic Education</span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#68626B] mb-1">Degree</label>
+                    <label className="block text-[#B7B7B7] mb-1">Degree</label>
                     <input
                       type="text"
                       value={content.profile.education.degree}
@@ -1788,11 +1798,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">Field</label>
+                    <label className="block text-[#B7B7B7] mb-1">Field</label>
                     <input
                       type="text"
                       value={content.profile.education.field}
@@ -1805,11 +1815,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">Institution</label>
+                    <label className="block text-[#B7B7B7] mb-1">Institution</label>
                     <input
                       type="text"
                       value={content.profile.education.institution}
@@ -1822,11 +1832,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">Period</label>
+                    <label className="block text-[#B7B7B7] mb-1">Period</label>
                     <input
                       type="text"
                       value={content.profile.education.period}
@@ -1839,18 +1849,18 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Contact Channels */}
-              <div className="pt-4 border-t border-[#E8DFD1] space-y-4">
-                <span className="font-semibold text-sm text-[#20060B] block">Contact Channels & Availability</span>
+              <div className="pt-4 border-t border-[#262626] space-y-4">
+                <span className="font-semibold text-sm text-[#F5F5F5] block">Contact Channels & Availability</span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#68626B] mb-1">Public Contact Email</label>
+                    <label className="block text-[#B7B7B7] mb-1">Public Contact Email</label>
                     <input
                       type="email"
                       value={content.profile.contact.email}
@@ -1863,11 +1873,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">GitHub Profile URL</label>
+                    <label className="block text-[#B7B7B7] mb-1">GitHub Profile URL</label>
                     <input
                       type="url"
                       value={content.profile.contact.github}
@@ -1880,11 +1890,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">LinkedIn Profile URL</label>
+                    <label className="block text-[#B7B7B7] mb-1">LinkedIn Profile URL</label>
                     <input
                       type="url"
                       value={content.profile.contact.linkedin}
@@ -1897,11 +1907,11 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#68626B] mb-1">Availability Status</label>
+                    <label className="block text-[#B7B7B7] mb-1">Availability Status</label>
                     <input
                       type="text"
                       value={content.profile.contact.availabilityStatus}
@@ -1914,7 +1924,7 @@ export default function StudioPage() {
                           }
                         })
                       }
-                      className="w-full px-3 py-1.5 rounded border border-[#D9CCB8] bg-[#FAF8F3]"
+                      className="w-full px-3 py-1.5 rounded border border-[#262626] bg-[#121212]"
                     />
                   </div>
                 </div>
@@ -1928,8 +1938,8 @@ export default function StudioPage() {
       {/* DELETE CONFIRMATION MODAL */}
       {/* ========================================================= */}
       {deleteTarget && (
-        <div className="fixed inset-0 z-50 bg-[#20060B]/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl border border-[#D9CCB8] max-w-md w-full p-6 shadow-xl space-y-4 font-sans">
+        <div className="fixed inset-0 z-50 bg-[#F5F5F5]/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#151515] rounded-2xl border border-[#262626] max-w-md w-full p-6 shadow-xl space-y-4 font-sans">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-red-600 font-semibold text-sm">
                 <AlertTriangle className="w-4 h-4" />
@@ -1937,21 +1947,21 @@ export default function StudioPage() {
               </div>
               <button
                 onClick={() => setDeleteTarget(null)}
-                className="p-1 text-[#68626B] hover:text-[#20060B] rounded cursor-pointer"
+                className="p-1 text-[#B7B7B7] hover:text-[#F5F5F5] rounded cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-[#68626B] leading-relaxed">
-              Are you sure you want to delete <strong className="text-[#20060B]">&ldquo;{deleteTarget.name}&rdquo;</strong>? 
+            <p className="text-xs text-[#B7B7B7] leading-relaxed">
+              Are you sure you want to delete <strong className="text-[#F5F5F5]">&ldquo;{deleteTarget.name}&rdquo;</strong>? 
               This will remove the item from your portfolio store upon publishing.
             </p>
 
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 onClick={() => setDeleteTarget(null)}
-                className="px-4 py-2 rounded-lg border border-[#D9CCB8] text-xs font-medium text-[#68626B] hover:text-[#20060B] cursor-pointer"
+                className="px-4 py-2 rounded-lg border border-[#262626] text-xs font-medium text-[#B7B7B7] hover:text-[#F5F5F5] cursor-pointer"
               >
                 Cancel
               </button>

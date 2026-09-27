@@ -1,54 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="pv-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#D4C4A8" />
-      <stop offset="50%" stop-color="#AC9062" />
-      <stop offset="100%" stop-color="#8C7043" />
+    <linearGradient id="hb-orange-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9D33" />
+      <stop offset="100%" stop-color="#FF7A00" />
     </linearGradient>
-    <linearGradient id="pv-burgundy" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#73102A" />
-      <stop offset="100%" stop-color="#590B20" />
+    <linearGradient id="hb-orange-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A00" />
+      <stop offset="100%" stop-color="#C65F00" />
     </linearGradient>
   </defs>
-  <style>
-    .pv-p {
-      fill: url(#pv-burgundy);
-      stroke: #AC9062;
-      stroke-width: 0.6px;
-      stroke-linejoin: round;
-    }
-    .pv-v {
-      fill: url(#pv-gold);
-    }
-    @media (prefers-color-scheme: dark) {
-      .pv-p {
-        fill: #7E102B;
-        stroke: #C5A880;
-        stroke-width: 0.8px;
-      }
-      .pv-v {
-        fill: #C5A880;
-      }
-    }
-  </style>
-  <g transform="translate(-2, -4)">
-    <!-- P Letter - Classical high contrast Bodoni serif with transparent counter -->
-    <path
-      class="pv-p"
-      fill-rule="evenodd"
-      d="M 12 10 L 30 10 C 40 10 44 14 44 23 C 44 32 38 36 28 36 L 20 36 L 20 62 L 12 62 Z M 20 16 L 28 16 C 34 16 36 19 36 23 C 36 28 34 30 28 30 L 20 30 Z"
-    />
-    <!-- Top and bottom serifs on P -->
-    <path class="pv-p" d="M 8 10 L 22 10 L 22 12 L 8 12 Z" />
-    <path class="pv-p" d="M 8 60 L 24 60 L 24 62 L 8 62 Z" />
+  <rect width="64" height="64" rx="14" fill="#080808" stroke="#262626" stroke-width="2" />
+  <g transform="translate(1, -2)">
+    <!-- H Left Stem -->
+    <rect x="12" y="14" width="6" height="40" fill="url(#hb-orange-primary)" rx="0.5" />
+    <path d="M 8 14 L 22 14 L 22 16 L 8 16 Z" fill="url(#hb-orange-primary)" />
+    <path d="M 8 52 L 22 52 L 22 54 L 8 54 Z" fill="url(#hb-orange-primary)" />
 
-    <!-- V Letter - Interlocking gracefully with P in Royal Gold -->
+    <!-- H Crossbar -->
+    <rect x="16" y="32" width="14" height="4" fill="url(#hb-orange-primary)" />
+
+    <!-- H Right Stem / B Spine in Orange Accent -->
+    <rect x="27" y="14" width="6" height="40" fill="url(#hb-orange-accent)" rx="0.5" />
+    <path d="M 24 14 L 35 14 L 35 16 L 24 16 Z" fill="url(#hb-orange-accent)" />
+    <path d="M 24 52 L 35 52 L 35 54 L 24 54 Z" fill="url(#hb-orange-accent)" />
+
+    <!-- B Upper Bowl -->
     <path
-      class="pv-v"
-      d="M 27 24 L 38 62 L 44 62 L 58 24 L 50 24 L 41 53 L 33 24 Z"
+      d="M 32 16 C 42 16 48 19 48 25 C 48 30 42 33 33 33 L 33 29 C 39 29 43 27 43 25 C 43 21 39 19 33 19 Z"
+      fill="url(#hb-orange-primary)"
     />
-    <!-- V left and right top serifs -->
-    <path class="pv-v" d="M 24 24 L 35 24 L 35 26 L 24 26 Z" />
-    <path class="pv-v" d="M 46 24 L 60 24 L 60 26 L 46 26 Z" />
+
+    <!-- B Lower Bowl -->
+    <path
+      d="M 32 32 C 44 32 51 36 51 43 C 51 51 43 54 32 54 L 32 50 C 40 50 46 48 46 43 C 46 38 40 36 32 36 Z"
+      fill="url(#hb-orange-primary)"
+    />
   </g>
 </svg>

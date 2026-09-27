@@ -53,7 +53,7 @@ export async function streamGeminiContent(
   const primaryModel = process.env.GEMINI_MODEL?.trim() || "gemini-3.6-flash";
   const fallbackModel = "gemini-flash-latest";
 
-  const payload: Record<string, any> = {
+  const payload: Record<string, unknown> = {
     contents,
     generationConfig: {
       maxOutputTokens: 900,

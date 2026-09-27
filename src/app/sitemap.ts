@@ -4,7 +4,7 @@ import { getPublishedProjects } from "@/lib/content-store";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || "https://varun-parlapalli.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") || "http://localhost:3000";
   const projects = await getPublishedProjects();
 
   const projectUrls = projects.map((p) => ({

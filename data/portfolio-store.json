@@ -1,346 +1,426 @@
 {
   "profile": {
-    "name": "PARLAPALLI VARUN",
-    "preferredName": "Varun",
-    "location": "Guntur, Andhra Pradesh",
-    "primaryRole": "Cybersecurity Undergraduate · COO at CodeXa Agency",
-    "supportingRole": "Frontend Developer & UI/UX Designer",
-    "introduction": "I turn ideas into clear, responsive digital products through design, code, and thoughtful execution.",
+    "name": "VENKATA SAI HARISH BABU GUMMADI",
+    "preferredName": "Harish Babu",
+    "location": "Guntur, Andhra Pradesh, India",
+    "primaryRole": "Software Developer",
+    "supportingRole": "Full Stack Web Development · AI · Cybersecurity",
+    "introduction": "Computer Science and Engineering student with hands-on experience developing AI-enabled web applications and participating in competitive internal hackathons. Familiar with C, Java, Python, HTML, JavaScript, FastAPI, REST APIs, Supabase, Git, GitHub, AI/LLM technologies and web deployment. Interested in full-stack development, artificial intelligence, software engineering and cybersecurity.",
     "aboutBio": [
-      "I am a Cybersecurity undergraduate at Narasaraopeta Engineering College (JNTU Kakinada) with a strong passion for building clear, responsive digital interfaces and resilient software systems.",
-      "My focus bridges engineering discipline with refined user experiences. As Chief Operating Officer at CodeXa Agency, I collaborate on product strategy while directly leading frontend implementations and design systems.",
-      "Through active hackathons, independent software development, and hands-on system architecture, I turn complex technical challenges into elegant, practical digital products."
+      "I am Venkata Sai Harish Babu Gummadi, a Computer Science and Engineering undergraduate at Narasaraopeta Engineering College (JNTUK). My focus centers on software development, full-stack web engineering, artificial intelligence, and cybersecurity.",
+      "I build practical applications using C, Java, Python, HTML, JavaScript, FastAPI, and Supabase, integrating AI/LLM technologies, prompt engineering, and local LLMs into functional web solutions.",
+      "Passionate about collaborative development, I participate in competitive hackathons and continuously expand my software engineering capabilities through hands-on project implementation."
+    ],
+    "languages": [
+      "English",
+      "Telugu"
+    ],
+    "focusAreas": [
+      "Full Stack Web Development",
+      "Software Development",
+      "Artificial Intelligence",
+      "Generative AI",
+      "Cybersecurity"
+    ],
+    "softSkills": [
+      "Problem Solving",
+      "Teamwork",
+      "Communication",
+      "Quick Learning",
+      "Adaptability",
+      "Technical Learning"
     ],
     "education": {
-      "degree": "B.Tech in Cybersecurity",
-      "field": "Cybersecurity Engineering",
+      "degree": "B.Tech – Computer Science and Engineering",
+      "field": "Computer Science and Engineering (CSE)",
       "institution": "Narasaraopeta Engineering College",
-      "university": "Jawaharlal Nehru Technological University Kakinada (JNTUK)",
+      "university": "JNTUK",
       "period": "2025–2029",
-      "disclaimer": "Independent student academic portfolio. College and university names are listed accurately as the student's enrolled institutions, without claiming official institutional endorsement."
+      "cgpa": "8.46",
+      "disclaimer": "Independent student academic portfolio. College and university names are listed accurately as the student's enrolled institutions, without claiming official institutional endorsement.",
+      "history": [
+        {
+          "level": "B.Tech",
+          "institution": "Narasaraopeta Engineering College",
+          "boardOrUniversity": "JNTUK",
+          "streamOrBranch": "Computer Science and Engineering (CSE)",
+          "periodOrYear": "2025–2029",
+          "score": "CGPA 8.46",
+          "status": "Ongoing"
+        },
+        {
+          "level": "Intermediate",
+          "institution": "Narayana",
+          "streamOrBranch": "MPC",
+          "periodOrYear": "2025",
+          "score": "91.3%",
+          "status": "Completed"
+        },
+        {
+          "level": "SSC",
+          "institution": "Kennedy English Medium High School",
+          "boardOrUniversity": "State Board",
+          "periodOrYear": "2023",
+          "score": "87%",
+          "status": "Completed"
+        }
+      ]
     },
     "contact": {
-      "email": "varunparlapalli2008@gmail.com",
-      "github": "https://github.com/varunparlapalli2008",
-      "linkedin": "https://www.linkedin.com/in/varun-parlapalli/",
-      "availabilityStatus": "Open for select frontend engineering collaborations & technical design projects (Verified).",
+      "email": "gummadivenkatasaiharishbabu@gmail.com",
+      "phone": "+91 8919580966",
+      "github": "https://github.com/harishgummadi72",
+      "linkedin": "https://www.linkedin.com/in/harish-gummadi-18a3153a7/",
+      "availabilityStatus": "Open for software engineering opportunities, hackathons, and technical collaborations.",
       "hasResume": false
     }
   },
   "projects": [
     {
-      "id": "proj-1",
-      "slug": "nec-portal",
-      "title": "NEC Portal",
-      "tagline": "A streamlined academic portal designed for Narasaraopeta Engineering College, focused on clarity, accessibility, and a better student experience.",
-      "category": "Frontend & UI/UX",
-      "role": "Frontend Developer & UI/UX Designer",
-      "contribution": "Led the interface design and responsive web implementation. Architected clean typography, structured examination results interfaces, and modern accessibility-compliant layouts.",
-      "featured": true,
-      "status": "Active",
-      "technologies": [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Vite",
-        "UI/UX Design"
-      ],
-      "overview": "The NEC Portal project was conceived to replace fragmented academic communication channels with an intuitive, unified web interface for students, faculty, and campus administrators.",
-      "problem": "Existing institutional portals often suffer from cumbersome navigation, non-responsive layouts on mobile devices, and cluttered notice boards where vital academic updates get lost.",
-      "intendedUsers": [
-        "Enrolled undergraduate and postgraduate students",
-        "Departmental faculty and examination branch staff",
-        "Prospective students exploring institutional programs"
-      ],
-      "teamContext": "Independent student development initiative focusing on student-first UX, working in coordination with academic peers to evaluate usability and workflow patterns.",
-      "featuresBuilt": [
-        "High-clarity homepage with dynamic event highlights and institutional milestones",
-        "Streamlined Examinations & Academic Schedules view with quick-access tables",
-        "Integrated Student Services directory for certificates and administrative requests",
-        "Responsive navigation drawer and desktop quick-links bar",
-        "Board of Studies (BoS) curriculum PDF access archive"
-      ],
-      "authenticPreviewUrl": "/assets/images/nec-college-building.jpg",
-      "previewType": "concept",
-      "challenges": [
-        "Balancing high volumes of legacy academic information with a clean, uncluttered visual hierarchy.",
-        "Ensuring rapid load times and crisp rendering on budget mobile devices commonly used by students."
-      ],
-      "lessons": [
-        "Direct user feedback from fellow students revealed that fast search for notices mattered more than decorative banners.",
-        "Strict typographic contrast ratios drastically reduced cognitive fatigue during exam result checks."
-      ],
-      "limitations": [
-        "Currently operates as an independent frontend architecture and interactive prototype; administrative backend integration is subject to institutional deployment protocols."
-      ],
-      "liveUrl": "https://nec-portal-rosy.vercel.app/",
-      "repoUrl": "",
-      "published": true,
-      "order": 1
-    },
-    {
-      "id": "proj-2",
-      "slug": "aegis-legacy",
-      "title": "Aegis Legacy",
-      "tagline": "A hardened system security visualization interface built to monitor threat vectors and policy compliance.",
-      "category": "Systems & AI",
-      "role": "Lead Interface Architect & Security Researcher",
-      "contribution": "Designed system information architecture, threat status indicators, and encrypted session workflow prototypes.",
-      "featured": true,
-      "status": "In Development",
-      "technologies": [
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "Web Security",
-        "Figma"
-      ],
-      "overview": "Aegis Legacy explores how modern cybersecurity tooling can communicate complex telemetry and vulnerability assessments without overwhelming system administrators.",
-      "problem": "Security dashboards frequently sacrifice clarity for density, leading to alert fatigue and delayed incident responses.",
-      "intendedUsers": [
-        "System administrators and network security analysts",
-        "Engineering teams requiring policy compliance visibility"
-      ],
-      "teamContext": "Independent technical initiative exploring the intersection of cybersecurity coursework and interface design.",
-      "featuresBuilt": [
-        "Real-time event severity classification cards",
-        "Minimalist data visualization for network anomalous patterns",
-        "Strict zero-trust authentication layout and role badge indicators"
-      ],
-      "previewType": "concept",
-      "challenges": [
-        "Designing accessible dark and high-contrast indicators that convey urgency without inducing visual panic."
-      ],
-      "lessons": [
-        "Applying semantic color theory ensures security operators spot anomalous spikes instantaneously."
-      ],
-      "limitations": [
-        "Prototype stage focusing on UI/UX telemetry design; synthetic mock telemetry is utilized for demonstration."
-      ],
-      "liveUrl": "https://aegis-legacy.vercel.app/",
-      "repoUrl": "",
-      "published": true,
-      "order": 2
-    },
-    {
-      "id": "proj-3",
-      "slug": "bookutsav-hub",
-      "title": "BookUtsav Innovation Hub",
-      "tagline": "An interactive digital platform connecting literary creators, student authors, and regional book festival workshops.",
-      "category": "Frontend & UI/UX",
-      "role": "Frontend Developer & Product Designer",
-      "contribution": "Engineered responsive author directory, workshop registration flow, and visual brand identity.",
+      "id": "proj-aakash-ai",
+      "slug": "aakash-ai",
+      "title": "Aakash AI",
+      "tagline": "AI-powered web platform designed to provide Panchayat-level weather information and agricultural advisory services for localized farmer assistance.",
+      "category": "AI / Full Stack / Agriculture",
+      "role": "Developer / Team Member",
+      "contribution": "Worked on the web application, Supabase database, Panchayat/LGD data integration, backend/AI-related functionality and overall project development.",
       "featured": true,
       "status": "Completed",
       "technologies": [
-        "React",
-        "JavaScript",
-        "CSS3",
-        "Responsive Design"
+        "Python",
+        "FastAPI",
+        "Supabase",
+        "HTML",
+        "AI / LLM Technologies",
+        "Git",
+        "GitHub"
       ],
-      "overview": "Built to celebrate literature and creative writing by providing an accessible, engaging web platform for festival attendees and workshop participants.",
-      "problem": "Community cultural events often rely on static brochures and scattered social media posts, causing low engagement for niche workshops.",
+      "overview": "Aakash AI is an AI-powered agricultural advisory platform designed to provide hyper-local weather information and crop advisory at the Panchayat level, directly assisting rural farmers with actionable data.",
+      "problem": "Generic weather forecasts lack micro-climate resolution at the local Panchayat level, hindering farmers from optimizing crop schedules, water usage, and preventive treatments.",
       "intendedUsers": [
-        "Workshop participants, student writers, and book festival attendees",
-        "Event coordinators managing session capacities"
+        "Local Farmers & Agricultural Workers",
+        "Gram Panchayat Representatives",
+        "Regional Agricultural Extension Workers"
       ],
-      "teamContext": "Collaborative community project developed for festival organizing groups.",
+      "teamContext": "Collaborative team initiative engineered for agricultural impact.",
       "featuresBuilt": [
-        "Interactive workshop schedule with real-time seat status indicators",
-        "Author profile cards with excerpts and interactive Q&A submission",
-        "Mobile-optimized ticketing and registration confirmations"
+        "Panchayat-level hyper-local weather information",
+        "Location-aware agricultural information",
+        "AI-based farmer advisory assistance",
+        "AI voice/calling concept for rural accessibility",
+        "Panchayat and LGD geographical data integration",
+        "Supabase-based structured data management",
+        "Web-based responsive user interface"
       ],
-      "previewType": "concept",
       "challenges": [
-        "Creating an inviting editorial aesthetic that resonated with traditional book lovers while feeling modern."
+        "Integrating heterogeneous Panchayat and LGD geographical datasets",
+        "Structuring responsive querying for low-bandwidth rural connections"
       ],
       "lessons": [
-        "Prioritizing lightweight static assets enabled lightning-fast browsing even on poor cellular connectivity during the festival."
+        "Designing localized interfaces tailored for real-world impact",
+        "Structuring scalable relational models using Supabase"
       ],
       "limitations": [
-        "Active during the event cycle; archived demonstration showcase preserved."
+        "Voice/calling capability is structured as an architectural concept"
       ],
-      "liveUrl": "https://bookutsav-inovationhub.vercel.app/",
-      "repoUrl": "",
+      "liveUrl": "https://tejakandula20.github.io/Aakash-AI/",
+      "repoUrl": "https://github.com/TejaKandula20/Aakash-AI",
       "published": true,
-      "order": 3
+      "order": 1,
+      "previewType": "authentic"
+    },
+    {
+      "id": "proj-nexora-ai",
+      "slug": "nexora-lost-found-ai",
+      "title": "Nexora – Lost & Found AI",
+      "tagline": "AI-assisted Lost & Found web application designed to help users report lost and found items and identify potentially related items through image-based comparison.",
+      "category": "AI / Web Application",
+      "role": "Developer / Team Member",
+      "contribution": "Worked on web application development, Supabase integration, image-upload functionality and AI-assisted matching functionality.",
+      "featured": true,
+      "status": "Deployed",
+      "technologies": [
+        "HTML",
+        "JavaScript",
+        "Supabase",
+        "AI / Image Matching",
+        "GitHub",
+        "Vercel"
+      ],
+      "overview": "Nexora is an intelligent lost-and-found community web platform designed to streamline reporting and recovery using visual image comparison and database matching.",
+      "problem": "Traditional lost-and-found boards rely solely on text descriptions, leading to high friction, subjective descriptions, and low item recovery rates.",
+      "intendedUsers": [
+        "Campus Students and Faculty",
+        "Facility Administrators",
+        "Community Members"
+      ],
+      "teamContext": "Collaborative project with repository maintained under Harish's account.",
+      "featuresBuilt": [
+        "Lost and found item reporting system",
+        "Multi-image upload workflow",
+        "AI-assisted image comparison and feature matching",
+        "Potential matching item discovery",
+        "Supabase backend data and storage integration",
+        "Production deployment on Vercel"
+      ],
+      "challenges": [
+        "Client-side image processing and efficient cloud storage uploads",
+        "Managing similarity thresholds for visual matching"
+      ],
+      "lessons": [
+        "End-to-end web deployment workflows on Vercel",
+        "Integrating Supabase storage with relational tables"
+      ],
+      "limitations": [
+        "Match accuracy is dependent on clarity and lighting of uploaded photos"
+      ],
+      "liveUrl": "https://nexora-lost-found-ai-gummadivenkatasaiharishbabu-6155.vercel.app/",
+      "repoUrl": "https://github.com/harishgummadi72/Nexora-Lost-Found-ai",
+      "published": true,
+      "order": 2,
+      "previewType": "authentic"
+    },
+    {
+      "id": "proj-learngraph-ai",
+      "slug": "learngraph-ai",
+      "title": "LearnGraph AI",
+      "tagline": "AI-powered adaptive learning platform designed to help students understand concepts through explanations, examples, quizzes, code assistance and knowledge-graph-based learning relationships.",
+      "category": "AI / Education / Adaptive Learning",
+      "role": "Hackathon Team Member / Developer",
+      "contribution": "Participated as a hackathon team member and developer. Specific individual contribution details have not yet been documented.",
+      "featured": true,
+      "status": "Hackathon Prototype",
+      "technologies": [
+        "AI / LLMs",
+        "Knowledge Graphs",
+        "Python / AI Technologies",
+        "Multiple LLM Providers",
+        "GitHub"
+      ],
+      "overview": "Built during a competitive 24-hour internal hackathon in 2026, LearnGraph AI combines knowledge graph topologies with large language models to construct dynamic, adaptive learning paths for students.",
+      "problem": "One-size-fits-all linear tutorials often overwhelm students by skipping foundational prerequisite concepts or failing to adapt to their current knowledge level.",
+      "intendedUsers": [
+        "Computer Science Students",
+        "Self-paced Technical Learners",
+        "Peer Study Groups"
+      ],
+      "teamContext": "Developed in a fast-paced 24-hour competitive internal hackathon (2026).",
+      "featuresBuilt": [
+        "AI-powered concept explanations with tiered depth",
+        "Topic and prerequisite concept matching",
+        "Knowledge graph prerequisite relationships",
+        "Adaptive learning progression tracking",
+        "Interactive examples and code assistance",
+        "Automated quiz and assessment generation",
+        "Multi-provider LLM support for high uptime"
+      ],
+      "challenges": [
+        "Synthesizing hierarchical knowledge graph relationships under 24-hour sprint limits",
+        "Connecting disparate LLM APIs reliably"
+      ],
+      "lessons": [
+        "Collaborative hackathon problem solving and rapid prototyping",
+        "Knowledge graph modeling for LLM context augmentation"
+      ],
+      "limitations": [
+        "Developed as a 24-hour hackathon prototype; public live demo is currently in progress"
+      ],
+      "liveUrl": "",
+      "repoUrl": "https://github.com/amukeshreddy465-ship-it/LearnGraph-AI",
+      "published": true,
+      "order": 3,
+      "previewType": "prototype"
     }
   ],
   "skills": [
     {
-      "id": "sk-1",
-      "name": "React.js",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "bookutsav-hub"
-      ]
-    },
-    {
-      "id": "sk-2",
-      "name": "Next.js (App Router)",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-3",
-      "name": "TypeScript",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-4",
-      "name": "Tailwind CSS",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-5",
-      "name": "HTML5 & Semantic Web",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "bookutsav-hub"
-      ]
-    },
-    {
-      "id": "sk-6",
-      "name": "Modern JavaScript (ES6+)",
-      "category": "Development",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "bookutsav-hub"
-      ]
-    },
-    {
-      "id": "sk-7",
-      "name": "UI/UX Design",
-      "category": "Design & Prototyping",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-9",
-      "name": "Design Systems & Tokens",
-      "category": "Design & Prototyping",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal"
-      ]
-    },
-    {
-      "id": "sk-12",
-      "name": "Cybersecurity Fundamentals",
-      "category": "Programming Foundations",
-      "proficiency": "Learning",
-      "relatedProjectSlugs": [
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-13",
-      "name": "Web Security & OWASP",
-      "category": "Programming Foundations",
-      "proficiency": "Learning",
-      "relatedProjectSlugs": [
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-14",
-      "name": "Git & Version Control",
-      "category": "Programming Foundations",
-      "proficiency": "Core",
-      "relatedProjectSlugs": [
-        "nec-portal",
-        "aegis-legacy"
-      ]
-    },
-    {
-      "id": "sk-15",
-      "name": "REST APIs & Data Fetching",
-      "category": "Programming Foundations",
-      "proficiency": "Proficient",
-      "relatedProjectSlugs": [
-        "nec-portal"
-      ]
-    },
-    {
-      "id": "sk-16",
-      "name": "VS Code & Development Tooling",
-      "category": "Tools & Workflow",
+      "id": "sk-c",
+      "name": "C",
+      "category": "Programming Languages",
       "proficiency": "Core",
       "relatedProjectSlugs": []
     },
     {
-      "id": "sk-18",
-      "name": "Postman API Testing",
-      "category": "Tools & Workflow",
-      "proficiency": "Proficient",
+      "id": "sk-java",
+      "name": "Java",
+      "category": "Programming Languages",
+      "proficiency": "Core",
       "relatedProjectSlugs": []
     },
     {
-      "id": "sk-19",
-      "name": "Vercel Deployment",
-      "category": "Tools & Workflow",
+      "id": "sk-python",
+      "name": "Python",
+      "category": "Programming Languages",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-html",
+      "name": "HTML",
+      "category": "Web Development",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "nexora-lost-found-ai"
+      ]
+    },
+    {
+      "id": "sk-javascript",
+      "name": "JavaScript",
+      "category": "Web Development",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "nexora-lost-found-ai"
+      ]
+    },
+    {
+      "id": "sk-fastapi",
+      "name": "FastAPI",
+      "category": "Backend & APIs",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai"
+      ]
+    },
+    {
+      "id": "sk-rest-apis",
+      "name": "REST APIs",
+      "category": "Backend & APIs",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai"
+      ]
+    },
+    {
+      "id": "sk-supabase",
+      "name": "Supabase",
+      "category": "Database / Backend Services",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "nexora-lost-found-ai"
+      ]
+    },
+    {
+      "id": "sk-ai",
+      "name": "Artificial Intelligence",
+      "category": "AI / Generative AI",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "nexora-lost-found-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-genai",
+      "name": "Generative AI",
+      "category": "AI / Generative AI",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-llms",
+      "name": "Large Language Models",
+      "category": "AI / Generative AI",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-prompt",
+      "name": "Prompt Engineering",
+      "category": "AI / Generative AI",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-ollama",
+      "name": "Ollama / Local LLMs",
+      "category": "AI / Generative AI",
+      "proficiency": "Foundation",
+      "relatedProjectSlugs": []
+    },
+    {
+      "id": "sk-ai-dev",
+      "name": "AI-Assisted Application Development",
+      "category": "AI / Generative AI",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "nexora-lost-found-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-git",
+      "name": "Git",
+      "category": "Developer Tools",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "nexora-lost-found-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-github",
+      "name": "GitHub",
+      "category": "Developer Tools",
+      "proficiency": "Core",
+      "relatedProjectSlugs": [
+        "aakash-ai",
+        "nexora-lost-found-ai",
+        "learngraph-ai"
+      ]
+    },
+    {
+      "id": "sk-vscode",
+      "name": "Visual Studio Code",
+      "category": "Developer Tools",
       "proficiency": "Core",
       "relatedProjectSlugs": []
+    },
+    {
+      "id": "sk-vercel",
+      "name": "Vercel",
+      "category": "Deployment",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "nexora-lost-found-ai"
+      ]
+    },
+    {
+      "id": "sk-gh-pages",
+      "name": "GitHub Pages",
+      "category": "Deployment",
+      "proficiency": "Applied",
+      "relatedProjectSlugs": [
+        "aakash-ai"
+      ]
     }
   ],
-  "experience": [
-    {
-      "id": "exp-1",
-      "role": "Chief Operating Officer (COO)",
-      "company": "CodeXa Agency",
-      "cooDistinction": "Serving as Chief Operating Officer at CodeXa Agency, responsible for coordinating daily operations, project execution, internal teams, client communication, delivery processes, and organizational workflows in collaboration with the founders and executive leadership.",
-      "period": "Ongoing Venture",
-      "isCurrent": true,
-      "summary": "As Chief Operating Officer, I oversee the operational structure of CodeXa Agency across client projects, internal teams, internships, and business activities. My role is to translate strategic decisions into organized execution by defining responsibilities, coordinating departments, monitoring progress, resolving operational blockers, and ensuring that every project moves efficiently from initial requirements to testing, deployment, and final handover.",
-      "contributions": [
-        "Oversee day-to-day agency operations and project execution.",
-        "Coordinate founders, executives, developers, designers, interns, and project teams.",
-        "Convert client requirements into defined scopes, milestones, responsibilities, and delivery plans.",
-        "Track project timelines, priorities, dependencies, progress, and pending deliverables.",
-        "Maintain clear communication between clients, leadership, and internal teams.",
-        "Identify operational blockers and coordinate timely solutions.",
-        "Ensure projects follow CodeXa Agency’s workflow: Requirement Gathering → Proposal → Quotation → Agreement → Development → Testing → Deployment → Handover.",
-        "Monitor quality assurance, client review, UAT, deployment readiness, and final delivery.",
-        "Improve internal workflows, documentation, accountability, and team productivity.",
-        "Support resource allocation, executive planning, project prioritization, and business decisions.",
-        "Ensure completed work aligns with the agreed project scope, client expectations, and CodeXa Agency’s quality standards.",
-        "Support the organization and monitoring of learning interns and project-based interns."
-      ],
-      "published": true
-    }
-  ],
+  "experience": [],
   "achievements": [
     {
       "id": "ach-1",
-      "title": "ByteXL Hackathon",
-      "event": "ByteXL Competitive Technical Hackathon",
-      "organizer": "ByteXL",
-      "result": "Top 30 Finalist",
+      "title": "24-Hour Competitive Internal Hackathon – Hospital Management System",
+      "event": "24-Hour Competitive Internal Hackathon",
+      "organizer": "Narasaraopeta Engineering College",
+      "result": "Hackathon Participation",
       "type": "Hackathon",
-      "teamOrIndividual": "Individual",
-      "year": "2025",
-      "description": "Placed among the Top 30 finalists out of approximately 180 participating engineering students, demonstrating rapid problem-solving and algorithmic development under timed conditions.",
+      "teamOrIndividual": "Team",
+      "year": "2026",
+      "description": "Participated in a 24-hour competitive internal hackathon and worked on a Hospital Management System.",
       "verified": true,
       "published": true,
       "order": 1,
@@ -348,190 +428,108 @@
     },
     {
       "id": "ach-2",
-      "title": "CodeBegin / CodeBegun Vibe Coding Hackathon",
-      "event": "CodeBegin / CodeBegun Vibe Coding Challenge",
-      "organizer": "CodeBegin / CodeBegun",
-      "result": "4th Place (Team Finalist)",
+      "title": "24-Hour Competitive Internal Hackathon – LearnGraph AI",
+      "event": "24-Hour Competitive Internal Hackathon",
+      "organizer": "Narasaraopeta Engineering College",
+      "result": "Hackathon Participation",
       "type": "Hackathon",
       "teamOrIndividual": "Team",
-      "year": "2025",
-      "description": "Collaborated in a competitive team setting to build an innovative digital product solution under tight sprint constraints, securing 4th place overall.",
+      "year": "2026",
+      "description": "Participated in a 24-hour competitive internal hackathon and contributed to an AI-powered adaptive learning platform (LearnGraph AI).",
       "verified": true,
       "published": true,
-      "order": 2
-    }
-  ],
-  "credentials": [
-    {
-      "id": "cred-gcp-security-journey",
-      "title": "Professional Cloud Security Engineer Journey",
-      "issuer": "Google Cloud Skills Boost",
-      "type": "Learning Journey",
-      "category": "learning-journey",
-      "summary": "Comprehensive self-paced learning path exploring cloud security engineering, IAM governance, network defense architecture, threat detection, and compliance controls on Google Cloud. Structured technical journey; not claimed as an official exam certification.",
-      "isJourney": true,
-      "featured": true,
-      "order": 1,
-      "published": true,
-      "verificationUrl": "https://www.skills.google/public_profiles/f6a4fb54-bba5-4304-a667-d20d42f57cc9/badges/16746122",
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/"
-    },
-    {
-      "id": "cred-gcp-intro-genai",
-      "title": "Introduction to Generative AI",
-      "issuer": "Google Cloud Skills Boost",
-      "type": "Course/Badge",
-      "category": "course-module",
-      "summary": "Foundational course exploring the principles of generative AI, large language models, application architectures, and responsible AI practices within the Google Cloud ecosystem.",
-      "isJourney": false,
-      "featured": false,
       "order": 2,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://www.skills.google/public_profiles/f6a4fb54-bba5-4304-a667-d20d42f57cc9/badges/16718434"
-    },
-    {
-      "id": "cred-gcp-mlops-genai",
-      "title": "MLOps for Generative AI",
-      "issuer": "Google Cloud Skills Boost",
-      "type": "Course/Badge",
-      "category": "course-module",
-      "summary": "Practical course focused on operationalizing generative AI workflows, prompt evaluation pipelines, model tuning considerations, and reliable deployment lifecycle.",
-      "isJourney": false,
-      "featured": false,
-      "order": 3,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://www.skills.google/public_profiles/f6a4fb54-bba5-4304-a667-d20d42f57cc9/badges/16768731"
-    },
-    {
-      "id": "cred-ms-describe-cloud",
-      "title": "Describe Cloud Computing",
-      "issuer": "Microsoft Learn",
-      "type": "Learning Module",
-      "category": "course-module",
-      "summary": "Foundational architectural module covering cloud service models (IaaS, PaaS, SaaS), cloud deployment models (public, private, hybrid), architectural elasticity, and shared responsibility security.",
-      "isJourney": false,
-      "featured": false,
-      "order": 4,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://learn.microsoft.com/api/achievements/share/en-in/varunparlapalli-6991/D9A7CCWJ?sharingId=5B7BC7D484C1CC90"
-    },
-    {
-      "id": "cred-ms-power-bi",
-      "title": "Get Started Building with Power BI",
-      "issuer": "Microsoft Learn",
-      "type": "Learning Module",
-      "category": "course-module",
-      "summary": "Introductory module on business intelligence data modeling, interactive dashboard design, metric visualization, and report publishing using Microsoft Power BI.",
-      "isJourney": false,
-      "featured": false,
-      "order": 5,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://learn.microsoft.com/api/achievements/share/en-in/varunparlapalli-6991/W2TP68VN?sharingId=5B7BC7D484C1CC90"
-    },
-    {
-      "id": "cred-hp-ai-beginners",
-      "title": "AI for Beginners",
-      "issuer": "HP LIFE / HP Foundation",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "date": "August 2, 2025",
-      "summary": "Certificate curriculum exploring practical applications of artificial intelligence in entrepreneurship, small business workflows, ethical considerations, and productivity acceleration.",
-      "isJourney": false,
-      "featured": true,
-      "order": 6,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://www.life-global.org/certificate/b6f06d82-76e0-429f-ad0a-16e7c936a563"
-    },
-    {
-      "id": "cred-hp-cybersecurity",
-      "title": "Introduction to Cybersecurity Awareness",
-      "issuer": "HP LIFE / HP Foundation",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "date": "August 2, 2025",
-      "summary": "Comprehensive cybersecurity training covering threat prevention hygiene, password security policies, safeguarding organizational data, and social engineering mitigation.",
-      "isJourney": false,
-      "featured": true,
-      "order": 7,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://www.life-global.org/certificate/5ba154da-42f9-445e-b6b4-dfbec15653d3"
-    },
-    {
-      "id": "cred-hp-data-science",
-      "title": "Data Science & Analytics",
-      "issuer": "HP LIFE / HP Foundation",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "date": "August 2, 2025",
-      "summary": "Core data analytics curriculum covering data interpretation, quantitative business metrics, decision-making frameworks, and structured analytical reporting.",
-      "isJourney": false,
-      "featured": true,
-      "order": 8,
-      "published": true,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/",
-      "verificationUrl": "https://www.life-global.org/certificate/bf081177-53c7-4ef3-ab23-566679db87ef"
-    },
-    {
-      "id": "cred-draft-grad-guru",
-      "title": "Grad Guru Certificate",
-      "issuer": "Grad Guru",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "date": "December 24, 2025",
-      "credentialId": "2ff35d08",
-      "summary": "Private draft certificate record awaiting exact published title and evidence verification link.",
-      "isJourney": false,
-      "featured": false,
-      "order": 9,
-      "published": false
-    },
-    {
-      "id": "cred-draft-ibm-python",
-      "title": "IBM Python Certificate",
-      "issuer": "IBM",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "summary": "Private draft certificate record awaiting exact published title and credential evidence link.",
-      "isJourney": false,
-      "featured": false,
-      "order": 10,
-      "published": false,
-      "linkedInPostUrl": "https://www.linkedin.com/in/varun-parlapalli/details/certifications/"
-    },
-    {
-      "id": "cred-draft-windows-pi",
-      "title": "Windows PI Certificate",
-      "issuer": "Microsoft / Windows",
-      "type": "Certificate of Completion",
-      "category": "certificate",
-      "summary": "Private draft certificate record awaiting exact published title and verification link.",
-      "isJourney": false,
-      "featured": false,
-      "order": 11,
-      "published": false
+      "evidenceUrl": ""
     }
   ],
+  "credentials": [],
   "currentlyLearning": [
     {
-      "id": "learn-1789831178324",
-      "topic": "Backend integration",
-      "area": "full-stack development",
+      "id": "learn-1790517443631",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
       "dated": "Active Exploration",
-      "notes": "iam doing real time projects to get more experiance",
+      "notes": "Key focus points and practical experiments.",
       "published": true
     },
     {
-      "id": "learn-1789831683249",
-      "topic": "kali linux",
-      "area": "cyber security",
+      "id": "learn-1790517445940",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
       "dated": "Active Exploration",
-      "notes": "learning kali linux ",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446105",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446282",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446452",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446623",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446808",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517446972",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517447149",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517447319",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    },
+    {
+      "id": "learn-1790517447540",
+      "topic": "New Technology or Paradigm",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
       "published": true
     }
   ]

@@ -3,11 +3,11 @@ export interface Project {
   slug: string;
   title: string;
   tagline: string;
-  category: 'Frontend & UI/UX' | 'Systems & AI' | 'Academic' | 'Full Stack';
+  category: 'Frontend & UI/UX' | 'Systems & AI' | 'Academic' | 'Full Stack' | string;
   role: string;
   contribution: string;
   featured: boolean;
-  status: 'Active' | 'Concept' | 'In Development' | 'Completed';
+  status: 'Active' | 'Concept' | 'In Development' | 'Completed' | 'Deployed' | 'Hackathon Prototype' | string;
   technologies: string[];
   overview: string;
   problem: string;
@@ -15,7 +15,7 @@ export interface Project {
   teamContext: string;
   featuresBuilt: string[];
   authenticPreviewUrl?: string;
-  previewType: 'authentic' | 'concept';
+  previewType: 'authentic' | 'concept' | 'prototype' | string;
   challenges: string[];
   lessons: string[];
   limitations: string[];
@@ -28,8 +28,8 @@ export interface Project {
 export interface Skill {
   id: string;
   name: string;
-  category: 'Development' | 'Design & Prototyping' | 'Programming Foundations' | 'Tools & Workflow';
-  proficiency: 'Proficient' | 'Learning' | 'Core';
+  category: 'Development' | 'Design & Prototyping' | 'Programming Foundations' | 'Tools & Workflow' | string;
+  proficiency: 'Proficient' | 'Learning' | 'Core' | 'Applied' | 'Foundation' | string;
   relatedProjectSlugs: string[];
 }
 
@@ -41,7 +41,7 @@ export interface Achievement {
   result: string;
   type: 'Hackathon' | 'Competition' | 'Recognition';
   teamOrIndividual: 'Team' | 'Individual';
-  year: string;
+  year?: string;
   description: string;
   evidenceUrl?: string;
   verified: boolean;
@@ -54,7 +54,7 @@ export interface Credential {
   title: string;
   issuer: string;
   type: 'Learning Journey' | 'Course/Badge' | 'Learning Module' | 'Certificate of Completion' | string;
-  category: 'learning-journey' | 'course-module' | 'certificate';
+  category: 'learning-journey' | 'course-module' | 'certificate' | string;
   date?: string;
   credentialId?: string;
   summary: string;
@@ -72,7 +72,7 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
-  cooDistinction: string;
+  cooDistinction?: string;
   period: string;
   isCurrent: boolean;
   summary: string;
@@ -89,6 +89,16 @@ export interface CurrentlyLearningItem {
   published: boolean;
 }
 
+export interface AcademicMilestone {
+  level: string;
+  institution: string;
+  boardOrUniversity?: string;
+  streamOrBranch?: string;
+  periodOrYear: string;
+  score: string;
+  status: 'Ongoing' | 'Completed';
+}
+
 export interface PortfolioProfile {
   name: string;
   preferredName: string;
@@ -97,18 +107,24 @@ export interface PortfolioProfile {
   supportingRole: string;
   introduction: string;
   aboutBio: string[];
+  languages?: string[];
+  focusAreas?: string[];
+  softSkills?: string[];
   education: {
     degree: string;
     field: string;
     institution: string;
     university: string;
     period: string;
+    cgpa?: string;
     disclaimer: string;
+    history?: AcademicMilestone[];
   };
   contact: {
     email: string;
+    phone?: string;
     github: string;
-    linkedin: string;
+    linkedin?: string;
     availabilityStatus: string;
     hasResume: boolean;
   };
