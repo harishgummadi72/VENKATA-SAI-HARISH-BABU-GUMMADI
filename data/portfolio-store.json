@@ -443,5 +443,14 @@
     }
   ],
   "credentials": [],
-  "currentlyLearning": []
+  "currentlyLearning": [
+    {
+      "id": "learn-1790688898346",
+      "topic": "Html",
+      "area": "Frontend Architecture",
+      "dated": "Active Exploration",
+      "notes": "Key focus points and practical experiments.",
+      "published": true
+    }
+  ]
 }
