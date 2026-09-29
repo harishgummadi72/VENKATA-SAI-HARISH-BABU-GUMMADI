@@ -409,7 +409,20 @@
       ]
     }
   ],
-  "experience": [],
+  "experience": [
+    {
+      "id": "exp-1790688936841",
+      "role": "intern",
+      "company": "codeXa agency",
+      "period": "6 months",
+      "isCurrent": false,
+      "summary": "i was vey much happy to be in this role this is my life time achivement",
+      "contributions": [
+        "very happy"
+      ],
+      "published": true
+    }
+  ],
   "achievements": [
     {
       "id": "ach-1",
@@ -443,14 +456,5 @@
     }
   ],
   "credentials": [],
-  "currentlyLearning": [
-    {
-      "id": "learn-1790688898346",
-      "topic": "Html",
-      "area": "Frontend Architecture",
-      "dated": "Active Exploration",
-      "notes": "Key focus points and practical experiments.",
-      "published": true
-    }
-  ]
+  "currentlyLearning": []
 }
