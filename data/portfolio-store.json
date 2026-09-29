@@ -443,30 +443,5 @@
     }
   ],
   "credentials": [],
-  "currentlyLearning": [
-    {
-      "id": "learn-1790517447149",
-      "topic": "New Technology or Paradigm",
-      "area": "Frontend Architecture",
-      "dated": "Active Exploration",
-      "notes": "Key focus points and practical experiments.",
-      "published": true
-    },
-    {
-      "id": "learn-1790517447319",
-      "topic": "New Technology or Paradigm",
-      "area": "Frontend Architecture",
-      "dated": "Active Exploration",
-      "notes": "Key focus points and practical experiments.",
-      "published": true
-    },
-    {
-      "id": "learn-1790517447540",
-      "topic": "New Technology or Paradigm",
-      "area": "Frontend Architecture",
-      "dated": "Active Exploration",
-      "notes": "Key focus points and practical experiments.",
-      "published": true
-    }
-  ]
+  "currentlyLearning": []
 }
