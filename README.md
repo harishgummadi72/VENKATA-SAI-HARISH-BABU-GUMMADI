@@ -1,36 +1,189 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Hi, I'm Harish Gummadi
 
-## Getting Started
+### Aspiring Software Developer | Full-Stack Developer | CSE Student
 
-First, run the development server:
+I'm **Venkata Sai Harish Babu Gummadi**, a Computer Science and Engineering student passionate about building modern web applications, solving real-world problems, and continuously improving my software development skills.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+I enjoy working across the full development stack, from designing responsive user interfaces to building application logic, APIs, databases, and AI-powered features.
+
+---
+
+## 🚀 About Me
+
+- 🎓 Computer Science & Engineering student
+- 💻 Interested in **Full-Stack Web Development**
+- 🔐 Exploring **Cybersecurity**
+- 🤖 Interested in **AI-powered applications and intelligent systems**
+- 🧩 Enjoy building practical projects and participating in hackathons
+- 🌱 Currently strengthening my **DSA, Java, Web Development, and Computer Science fundamentals**
+- ⚡ I believe in learning by building real projects
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Programming Languages
+
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+
+### 🌐 Web Development
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+
+### 🗄️ Database & Backend
+
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+
+### ⚙️ Tools
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+---
+
+## 🚀 Featured Projects
+
+### 🔎 Nexora - Lost & Found AI
+
+An AI-assisted lost-and-found platform designed to help users identify potentially matching lost and found items using image-based comparison.
+
+**Key features:**
+
+- 📷 Lost and found item image uploads
+- 🤖 AI-assisted image comparison
+- 📊 Match probability / confidence information
+- 🔐 User authentication
+- ☁️ Cloud-based image storage
+- 📱 Responsive web interface
+
+**Technologies:** React.js · Supabase · AI · JavaScript
+
+---
+
+### 🏥 Hospital Management System
+
+A web-based application designed to simplify hospital-related management workflows.
+
+**Focus areas:**
+
+- Patient management
+- Hospital data organization
+- Application workflow management
+- Responsive web interface
+
+---
+
+### 🧠 Autonomous Study Agent
+
+An intelligent study-focused application designed to help organize learning and generate adaptive study experiences.
+
+**Key concepts:**
+
+- AI-assisted learning
+- Knowledge representation
+- Adaptive learning
+- Automated study workflows
+
+**Technologies:** AI · Python · Web Technologies
+
+---
+
+## 🏆 Hackathon Experience
+
+I've participated in **24-hour competitive internal hackathons**, working with teams to transform problem statements into functional software solutions under time constraints.
+
+These experiences helped me improve:
+
+- Problem solving
+- Team collaboration
+- Rapid prototyping
+- UI/UX implementation
+- API integration
+- Project presentation
+- Working under deadlines
+
+---
+
+## 📚 Currently Learning
+
+```text
+DSA & Problem Solving
+        ↓
+Java
+        ↓
+Full-Stack Web Development
+        ↓
+Backend & APIs
+        ↓
+Cybersecurity
+        ↓
+AI & Intelligent Applications
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I'm currently focusing on strengthening my fundamentals rather than simply collecting technologies.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Career Interests
 
-## Learn More
+I'm interested in opportunities related to:
 
-To learn more about Next.js, take a look at the following resources:
+- 💻 Software Development
+- 🌐 Full-Stack Development
+- 🔧 Backend Development
+- 🤖 AI-powered Applications
+- 🔐 Cybersecurity
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+My long-term goal is to become a strong software engineer capable of designing, developing, and deploying real-world applications.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌐 Portfolio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🚀 **Live Portfolio:**  
+https://venkata-sai-harish-babu-gummadi.vercel.app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💻 **GitHub:**  
+https://github.com/harishgummadi72
+
+🔗 **LinkedIn:**  
+https://linkedin.com/in/harish-gummadi-18a3153a7
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=harishgummadi72&show_icons=true&theme=tokyonight&hide_border=true" height="170"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=harishgummadi72&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
+</p>
+
+---
+
+## 💡 My Development Philosophy
+
+> **Learn. Build. Break. Fix. Improve. Repeat.**
+
+I believe the best way to become a better developer is to consistently build projects, understand why things work, learn from failures, and keep improving.
+
+---
+
+## 🤝 Let's Connect
+
+I'm always interested in learning, building, collaborating on projects, and exploring new opportunities.
+
+If you're interested in technology, software development, AI, or cybersecurity, feel free to connect!
+
+---
+
+⭐ **If you find this portfolio interesting, consider starring the repository!**
