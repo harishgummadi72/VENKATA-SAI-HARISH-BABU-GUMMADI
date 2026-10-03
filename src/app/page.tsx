@@ -42,7 +42,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <CinematicIntro content={introContent} />
+      <CinematicIntro />
       {/* Sticky Horizontal Top Header */}
       <TopHeader />
 
