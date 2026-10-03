@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Monogram from "../ui/Monogram";
+import { ReplayIntroButton } from "../intro/CinematicIntro";
 
 export default function Footer() {
   return (
@@ -38,6 +39,7 @@ export default function Footer() {
           <Link href="/#contact" className="hover:text-[#FF7A00] transition-colors">
             Contact
           </Link>
+          <ReplayIntroButton />
           <a
             href="https://github.com/harishgummadi72"
             target="_blank"
