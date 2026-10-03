@@ -3,10 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Play, Volume2, VolumeX } from "lucide-react";
 import styles from "./cinematic-intro.module.css";
+import IntroMontage, { type IntroContent } from "./IntroMontage";
+import { startIntroAudio } from "./intro-audio";
 
 const SEEN_KEY = "harish:intro:v2";
 const REPLAY_EVENT = "harish:replay-intro";
-const VIDEO_SRC = "/assets/videos/portfolio-entry.mp4";
 
 export function ReplayIntroButton() {
   return (
@@ -21,10 +22,12 @@ export function ReplayIntroButton() {
   );
 }
 
-export default function CinematicIntro() {
+export default function CinematicIntro({ content }: { content: IntroContent }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const video = useRef<HTMLVideoElement>(null);
   const previousOverflow = useRef<string | null>(null);
+  const completionTimer = useRef<number | null>(null);
+  const audio = useRef<AudioContext | null>(null);
+  const startedAt = useRef(0);
 
   const [phase, setPhase] = useState<"idle" | "playing" | "exiting">("idle");
   const [run, setRun] = useState(0);
@@ -43,12 +46,13 @@ export default function CinematicIntro() {
   const finish = useCallback(
     (immediate = false) => {
       const element = dialog.current;
-      const player = video.current;
-
-      if (player) {
-        player.pause();
-        player.currentTime = 0;
+      if (completionTimer.current !== null) {
+        window.clearTimeout(completionTimer.current);
+        completionTimer.current = null;
       }
+
+      void audio.current?.close();
+      audio.current = null;
 
       if (!element?.open) return;
 
@@ -97,15 +101,19 @@ export default function CinematicIntro() {
     document.documentElement.dataset.portfolioIntro = "playing";
 
     element.showModal();
+    startedAt.current = performance.now();
+
+    if (!reduceMotion) {
+      completionTimer.current = window.setTimeout(() => finish(), 7200);
+    }
 
     try {
       sessionStorage.setItem(SEEN_KEY, "seen");
     } catch {}
-  }, []);
+  }, [finish]);
 
   useEffect(() => {
     const dialogElement = dialog.current;
-    const videoElement = video.current;
     const frame = requestAnimationFrame(() => begin(false));
 
     const replay = () => begin(true);
@@ -130,7 +138,12 @@ export default function CinematicIntro() {
       window.removeEventListener(REPLAY_EVENT, replay);
       document.removeEventListener("visibilitychange", hidden);
       motionPreference.removeEventListener("change", motionChanged);
-      videoElement?.pause();
+      if (completionTimer.current !== null) {
+        window.clearTimeout(completionTimer.current);
+        completionTimer.current = null;
+      }
+      void audio.current?.close();
+      audio.current = null;
       dialogElement?.close();
       restorePage();
     };
@@ -149,22 +162,14 @@ export default function CinematicIntro() {
     >
       {phase !== "idle" && (
         <div key={run} className={styles.film}>
-          <video
-            ref={video}
-            className={styles.video}
-            autoPlay={!reduced}
-            muted={muted}
-            playsInline
-            preload="auto"
-            onCanPlay={() => {
-              if (!reduced) void video.current?.play().catch(() => undefined);
-            }}
-            onEnded={() => finish()}
-            onError={() => finish(true)}
+          <svg
+            className={styles.montage}
+            viewBox="0 0 2400 1300"
+            preserveAspectRatio="xMidYMid slice"
             aria-hidden="true"
           >
-            <source src={VIDEO_SRC} type="video/mp4" />
-          </video>
+            <IntroMontage content={content} />
+          </svg>
 
           <div className={styles.overlay} />
 
@@ -177,7 +182,19 @@ export default function CinematicIntro() {
               {!reduced && (
                 <button
                   type="button"
-                  onClick={() => setMuted((value) => !value)}
+                  onClick={() => {
+                    setMuted((value) => {
+                      const nextMuted = !value;
+                      if (nextMuted) {
+                        void audio.current?.close();
+                        audio.current = null;
+                      } else {
+                        const elapsed = (performance.now() - startedAt.current) / 1000;
+                        audio.current = startIntroAudio(elapsed, 7.2);
+                      }
+                      return nextMuted;
+                    });
+                  }}
                   className={styles.control}
                   aria-pressed={!muted}
                 >
