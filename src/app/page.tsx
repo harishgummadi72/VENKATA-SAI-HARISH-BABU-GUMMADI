@@ -31,18 +31,9 @@ export default async function HomePage() {
   const achievements = await getPublishedAchievements();
   const credentials = await getPublishedCredentials();
   const currentlyLearning = await getPublishedCurrentlyLearning();
-  const introContent = {
-    projects: projects.slice(0, 3).map(({ title, category }) => ({ title, category })),
-    milestones: achievements.slice(0, 2).map(({ title, result, teamOrIndividual }) => ({
-      title,
-      result,
-      teamOrIndividual,
-    })),
-  };
-
   return (
     <>
-      <CinematicIntro content={introContent} />
+      <CinematicIntro />
       {/* Sticky Horizontal Top Header */}
       <TopHeader />
 
