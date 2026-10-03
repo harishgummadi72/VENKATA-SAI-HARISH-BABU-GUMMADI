@@ -18,6 +18,7 @@ import AchievementsSection from "@/components/sections/AchievementsSection";
 import CurrentlyLearning from "@/components/sections/CurrentlyLearning";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
+import CinematicIntro from "@/components/intro/CinematicIntro";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -30,9 +31,18 @@ export default async function HomePage() {
   const achievements = await getPublishedAchievements();
   const credentials = await getPublishedCredentials();
   const currentlyLearning = await getPublishedCurrentlyLearning();
+  const introContent = {
+    projects: projects.slice(0, 3).map(({ title, category }) => ({ title, category })),
+    milestones: achievements.slice(0, 2).map(({ title, result, teamOrIndividual }) => ({
+      title,
+      result,
+      teamOrIndividual,
+    })),
+  };
 
   return (
     <>
+      <CinematicIntro content={introContent} />
       {/* Sticky Horizontal Top Header */}
       <TopHeader />
 
